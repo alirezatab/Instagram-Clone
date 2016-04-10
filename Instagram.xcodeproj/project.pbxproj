@@ -20,6 +20,7 @@
 		1A4A03AF1CB9F28100D291EE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03AD1CB9F28100D291EE /* Search.storyboard */; };
 		1A4A03B11CB9F2AD00D291EE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B01CB9F2AD00D291EE /* Home.storyboard */; };
 		1A4A03BA1CBA08C900D291EE /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B91CBA08C900D291EE /* Profile.storyboard */; };
+		1A8B345F1CBA0FD500A5FF0E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B345E1CBA0FD500A5FF0E /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		1A4A03AE1CB9F28100D291EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		1A4A03B01CB9F2AD00D291EE /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		1A4A03B91CBA08C900D291EE /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = ../Profile.storyboard; sourceTree = "<group>"; };
+		1A8B345D1CBA0FD500A5FF0E /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		1A8B345E1CBA0FD500A5FF0E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				1A4A03B91CBA08C900D291EE /* Profile.storyboard */,
+				1A8B345D1CBA0FD500A5FF0E /* ProfileViewController.h */,
+				1A8B345E1CBA0FD500A5FF0E /* ProfileViewController.m */,
 			);
 			name = "Profile Section";
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 			files = (
 				1A4A037E1CB9F0EB00D291EE /* Instagram.xcdatamodeld in Sources */,
 				1A4A03751CB9F0EB00D291EE /* AppDelegate.m in Sources */,
+				1A8B345F1CBA0FD500A5FF0E /* ProfileViewController.m in Sources */,
 				1A4A03721CB9F0EB00D291EE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
