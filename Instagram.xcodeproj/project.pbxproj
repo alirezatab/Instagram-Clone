@@ -19,7 +19,7 @@
 		1A4A03AA1CB9F22200D291EE /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03A81CB9F22200D291EE /* Camera.storyboard */; };
 		1A4A03AF1CB9F28100D291EE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03AD1CB9F28100D291EE /* Search.storyboard */; };
 		1A4A03B11CB9F2AD00D291EE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B01CB9F2AD00D291EE /* Home.storyboard */; };
-		1A4A03B31CB9F3C500D291EE /* Skeleton.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B21CB9F3C500D291EE /* Skeleton.storyboard */; };
+		1A4A03BA1CBA08C900D291EE /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B91CBA08C900D291EE /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,7 @@
 		1A4A03A91CB9F22200D291EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Camera.storyboard; sourceTree = "<group>"; };
 		1A4A03AE1CB9F28100D291EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		1A4A03B01CB9F2AD00D291EE /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		1A4A03B21CB9F3C500D291EE /* Skeleton.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Skeleton.storyboard; sourceTree = "<group>"; };
+		1A4A03B91CBA08C900D291EE /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = ../Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				1A4A03811CB9F0EB00D291EE /* LaunchScreen.storyboard */,
-				1A4A03B21CB9F3C500D291EE /* Skeleton.storyboard */,
+				1A4A03791CB9F0EB00D291EE /* Main.storyboard */,
 				1A4A037F1CB9F0EB00D291EE /* Assets.xcassets */,
 				1A4A037C1CB9F0EB00D291EE /* Instagram.xcdatamodeld */,
 				1A4A03B41CB9F51000D291EE /* Home Section */,
@@ -188,7 +188,7 @@
 		1A4A03B81CB9F56B00D291EE /* Profile Section */ = {
 			isa = PBXGroup;
 			children = (
-				1A4A03791CB9F0EB00D291EE /* Main.storyboard */,
+				1A4A03B91CBA08C900D291EE /* Profile.storyboard */,
 			);
 			name = "Profile Section";
 			sourceTree = "<group>";
@@ -301,12 +301,12 @@
 			files = (
 				1A4A03B11CB9F2AD00D291EE /* Home.storyboard in Resources */,
 				1A4A03831CB9F0EB00D291EE /* LaunchScreen.storyboard in Resources */,
+				1A4A03BA1CBA08C900D291EE /* Profile.storyboard in Resources */,
 				1A4A03A71CB9F18500D291EE /* Notifications.storyboard in Resources */,
 				1A4A03801CB9F0EB00D291EE /* Assets.xcassets in Resources */,
 				1A4A037B1CB9F0EB00D291EE /* Main.storyboard in Resources */,
 				1A4A03AF1CB9F28100D291EE /* Search.storyboard in Resources */,
 				1A4A03AA1CB9F22200D291EE /* Camera.storyboard in Resources */,
-				1A4A03B31CB9F3C500D291EE /* Skeleton.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +575,7 @@
 				1A4A039F1CB9F0EC00D291EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A4A03A01CB9F0EC00D291EE /* Build configuration list for PBXNativeTarget "InstagramTests" */ = {
 			isa = XCConfigurationList;
@@ -583,6 +584,7 @@
 				1A4A03A21CB9F0EC00D291EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A4A03A31CB9F0EC00D291EE /* Build configuration list for PBXNativeTarget "InstagramUITests" */ = {
 			isa = XCConfigurationList;
@@ -591,6 +593,7 @@
 				1A4A03A51CB9F0EC00D291EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

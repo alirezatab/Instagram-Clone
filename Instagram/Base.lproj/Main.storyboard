@@ -5,25 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="12Q-Jd-QaI"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="865" y="1269"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GJ1-Tq-cOc">
             <objects>
@@ -38,7 +19,7 @@
                         <segue destination="mUt-hC-knl" kind="relationship" relationship="viewControllers" id="gZE-a8-bH4"/>
                         <segue destination="kva-4K-cxg" kind="relationship" relationship="viewControllers" id="pcW-6W-htK"/>
                         <segue destination="IbS-AE-V79" kind="relationship" relationship="viewControllers" id="YLz-kX-zKb"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="GQG-Xl-OIj"/>
+                        <segue destination="QDf-4D-Pvy" kind="relationship" relationship="viewControllers" id="GQG-Xl-OIj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtW-lJ-0yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,6 +65,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIA-0p-tsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="60" y="983"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="1Ag-yz-1Z6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="QDf-4D-Pvy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="fOP-2j-Yyc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Jf-MR-6gA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="621" y="983"/>
         </scene>
     </scenes>
 </document>
