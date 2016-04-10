@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "ProfileCollectionViewCell.h"
 
 @interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -33,6 +34,8 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableViewCell" forIndexPath:indexPath];
     
+    
+    
     return cell;
 }
 
@@ -44,6 +47,10 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell" forIndexPath:indexPath];
+    
+    collectionView.backgroundColor = [UIColor whiteColor];
+    
+    
     
     return collectionCell;
 }
