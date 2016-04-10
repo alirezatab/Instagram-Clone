@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		1A4A03721CB9F0EB00D291EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A03711CB9F0EB00D291EE /* main.m */; };
 		1A4A03751CB9F0EB00D291EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A03741CB9F0EB00D291EE /* AppDelegate.m */; };
-		1A4A03781CB9F0EB00D291EE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A03771CB9F0EB00D291EE /* ViewController.m */; };
 		1A4A037B1CB9F0EB00D291EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03791CB9F0EB00D291EE /* Main.storyboard */; };
 		1A4A037E1CB9F0EB00D291EE /* Instagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A037C1CB9F0EB00D291EE /* Instagram.xcdatamodeld */; };
 		1A4A03801CB9F0EB00D291EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A037F1CB9F0EB00D291EE /* Assets.xcassets */; };
 		1A4A03831CB9F0EB00D291EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03811CB9F0EB00D291EE /* LaunchScreen.storyboard */; };
 		1A4A038E1CB9F0EC00D291EE /* InstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A038D1CB9F0EC00D291EE /* InstagramTests.m */; };
 		1A4A03991CB9F0EC00D291EE /* InstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A03981CB9F0EC00D291EE /* InstagramUITests.m */; };
+		1A4A03A71CB9F18500D291EE /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03A61CB9F18500D291EE /* Notifications.storyboard */; };
+		1A4A03AA1CB9F22200D291EE /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03A81CB9F22200D291EE /* Camera.storyboard */; };
+		1A4A03AF1CB9F28100D291EE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03AD1CB9F28100D291EE /* Search.storyboard */; };
+		1A4A03B11CB9F2AD00D291EE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B01CB9F2AD00D291EE /* Home.storyboard */; };
+		1A4A03B31CB9F3C500D291EE /* Skeleton.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B21CB9F3C500D291EE /* Skeleton.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +44,6 @@
 		1A4A03711CB9F0EB00D291EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1A4A03731CB9F0EB00D291EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1A4A03741CB9F0EB00D291EE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1A4A03761CB9F0EB00D291EE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1A4A03771CB9F0EB00D291EE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1A4A037A1CB9F0EB00D291EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A4A037D1CB9F0EB00D291EE /* Instagram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Instagram.xcdatamodel; sourceTree = "<group>"; };
 		1A4A037F1CB9F0EB00D291EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +55,11 @@
 		1A4A03941CB9F0EC00D291EE /* InstagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4A03981CB9F0EC00D291EE /* InstagramUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramUITests.m; sourceTree = "<group>"; };
 		1A4A039A1CB9F0EC00D291EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A4A03A61CB9F18500D291EE /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		1A4A03A91CB9F22200D291EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Camera.storyboard; sourceTree = "<group>"; };
+		1A4A03AE1CB9F28100D291EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
+		1A4A03B01CB9F2AD00D291EE /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		1A4A03B21CB9F3C500D291EE /* Skeleton.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Skeleton.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,15 +110,15 @@
 		1A4A036F1CB9F0EB00D291EE /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
-				1A4A03731CB9F0EB00D291EE /* AppDelegate.h */,
-				1A4A03741CB9F0EB00D291EE /* AppDelegate.m */,
-				1A4A03761CB9F0EB00D291EE /* ViewController.h */,
-				1A4A03771CB9F0EB00D291EE /* ViewController.m */,
-				1A4A03791CB9F0EB00D291EE /* Main.storyboard */,
-				1A4A037F1CB9F0EB00D291EE /* Assets.xcassets */,
 				1A4A03811CB9F0EB00D291EE /* LaunchScreen.storyboard */,
-				1A4A03841CB9F0EB00D291EE /* Info.plist */,
+				1A4A03B21CB9F3C500D291EE /* Skeleton.storyboard */,
+				1A4A037F1CB9F0EB00D291EE /* Assets.xcassets */,
 				1A4A037C1CB9F0EB00D291EE /* Instagram.xcdatamodeld */,
+				1A4A03B41CB9F51000D291EE /* Home Section */,
+				1A4A03B51CB9F52600D291EE /* Search Section */,
+				1A4A03B61CB9F53600D291EE /* Camera Section */,
+				1A4A03B71CB9F54900D291EE /* Notifications Section */,
+				1A4A03B81CB9F56B00D291EE /* Profile Section */,
 				1A4A03701CB9F0EB00D291EE /* Supporting Files */,
 			);
 			path = Instagram;
@@ -120,6 +127,9 @@
 		1A4A03701CB9F0EB00D291EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1A4A03731CB9F0EB00D291EE /* AppDelegate.h */,
+				1A4A03741CB9F0EB00D291EE /* AppDelegate.m */,
+				1A4A03841CB9F0EB00D291EE /* Info.plist */,
 				1A4A03711CB9F0EB00D291EE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -141,6 +151,46 @@
 				1A4A039A1CB9F0EC00D291EE /* Info.plist */,
 			);
 			path = InstagramUITests;
+			sourceTree = "<group>";
+		};
+		1A4A03B41CB9F51000D291EE /* Home Section */ = {
+			isa = PBXGroup;
+			children = (
+				1A4A03B01CB9F2AD00D291EE /* Home.storyboard */,
+			);
+			name = "Home Section";
+			sourceTree = "<group>";
+		};
+		1A4A03B51CB9F52600D291EE /* Search Section */ = {
+			isa = PBXGroup;
+			children = (
+				1A4A03AD1CB9F28100D291EE /* Search.storyboard */,
+			);
+			name = "Search Section";
+			sourceTree = "<group>";
+		};
+		1A4A03B61CB9F53600D291EE /* Camera Section */ = {
+			isa = PBXGroup;
+			children = (
+				1A4A03A81CB9F22200D291EE /* Camera.storyboard */,
+			);
+			name = "Camera Section";
+			sourceTree = "<group>";
+		};
+		1A4A03B71CB9F54900D291EE /* Notifications Section */ = {
+			isa = PBXGroup;
+			children = (
+				1A4A03A61CB9F18500D291EE /* Notifications.storyboard */,
+			);
+			name = "Notifications Section";
+			sourceTree = "<group>";
+		};
+		1A4A03B81CB9F56B00D291EE /* Profile Section */ = {
+			isa = PBXGroup;
+			children = (
+				1A4A03791CB9F0EB00D291EE /* Main.storyboard */,
+			);
+			name = "Profile Section";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +299,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4A03B11CB9F2AD00D291EE /* Home.storyboard in Resources */,
 				1A4A03831CB9F0EB00D291EE /* LaunchScreen.storyboard in Resources */,
+				1A4A03A71CB9F18500D291EE /* Notifications.storyboard in Resources */,
 				1A4A03801CB9F0EB00D291EE /* Assets.xcassets in Resources */,
 				1A4A037B1CB9F0EB00D291EE /* Main.storyboard in Resources */,
+				1A4A03AF1CB9F28100D291EE /* Search.storyboard in Resources */,
+				1A4A03AA1CB9F22200D291EE /* Camera.storyboard in Resources */,
+				1A4A03B31CB9F3C500D291EE /* Skeleton.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +332,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A4A037E1CB9F0EB00D291EE /* Instagram.xcdatamodeld in Sources */,
-				1A4A03781CB9F0EB00D291EE /* ViewController.m in Sources */,
 				1A4A03751CB9F0EB00D291EE /* AppDelegate.m in Sources */,
 				1A4A03721CB9F0EB00D291EE /* main.m in Sources */,
 			);
@@ -329,6 +383,22 @@
 				1A4A03821CB9F0EB00D291EE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1A4A03A81CB9F22200D291EE /* Camera.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A4A03A91CB9F22200D291EE /* Base */,
+			);
+			name = Camera.storyboard;
+			sourceTree = "<group>";
+		};
+		1A4A03AD1CB9F28100D291EE /* Search.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A4A03AE1CB9F28100D291EE /* Base */,
+			);
+			name = Search.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
