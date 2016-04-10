@@ -21,6 +21,14 @@
 		1A4A03B11CB9F2AD00D291EE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B01CB9F2AD00D291EE /* Home.storyboard */; };
 		1A4A03BA1CBA08C900D291EE /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B91CBA08C900D291EE /* Profile.storyboard */; };
 		1A8B345F1CBA0FD500A5FF0E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B345E1CBA0FD500A5FF0E /* ProfileViewController.m */; };
+		394771741CBA1AD90051C2E2 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 394771651CBA1AD90051C2E2 /* User+CoreDataProperties.m */; };
+		394771751CBA1AD90051C2E2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 394771671CBA1AD90051C2E2 /* User.m */; };
+		394771761CBA1AD90051C2E2 /* Hashtag+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 394771691CBA1AD90051C2E2 /* Hashtag+CoreDataProperties.m */; };
+		394771771CBA1AD90051C2E2 /* Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 3947716B1CBA1AD90051C2E2 /* Hashtag.m */; };
+		394771781CBA1AD90051C2E2 /* Picture+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3947716D1CBA1AD90051C2E2 /* Picture+CoreDataProperties.m */; };
+		394771791CBA1AD90051C2E2 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3947716F1CBA1AD90051C2E2 /* Picture.m */; };
+		3947717A1CBA1AD90051C2E2 /* Comment+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 394771711CBA1AD90051C2E2 /* Comment+CoreDataProperties.m */; };
+		3947717B1CBA1AD90051C2E2 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 394771731CBA1AD90051C2E2 /* Comment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +71,22 @@
 		1A4A03B91CBA08C900D291EE /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = ../Profile.storyboard; sourceTree = "<group>"; };
 		1A8B345D1CBA0FD500A5FF0E /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		1A8B345E1CBA0FD500A5FF0E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		394771641CBA1AD90051C2E2 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		394771651CBA1AD90051C2E2 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		394771661CBA1AD90051C2E2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		394771671CBA1AD90051C2E2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		394771681CBA1AD90051C2E2 /* Hashtag+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Hashtag+CoreDataProperties.h"; sourceTree = "<group>"; };
+		394771691CBA1AD90051C2E2 /* Hashtag+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Hashtag+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3947716A1CBA1AD90051C2E2 /* Hashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hashtag.h; sourceTree = "<group>"; };
+		3947716B1CBA1AD90051C2E2 /* Hashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hashtag.m; sourceTree = "<group>"; };
+		3947716C1CBA1AD90051C2E2 /* Picture+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Picture+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3947716D1CBA1AD90051C2E2 /* Picture+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Picture+CoreDataProperties.m"; sourceTree = "<group>"; };
+		3947716E1CBA1AD90051C2E2 /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picture.h; sourceTree = "<group>"; };
+		3947716F1CBA1AD90051C2E2 /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
+		394771701CBA1AD90051C2E2 /* Comment+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Comment+CoreDataProperties.h"; sourceTree = "<group>"; };
+		394771711CBA1AD90051C2E2 /* Comment+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Comment+CoreDataProperties.m"; sourceTree = "<group>"; };
+		394771721CBA1AD90051C2E2 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		394771731CBA1AD90051C2E2 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +117,22 @@
 		1A4A03641CB9F0EB00D291EE = {
 			isa = PBXGroup;
 			children = (
+				394771641CBA1AD90051C2E2 /* User+CoreDataProperties.h */,
+				394771651CBA1AD90051C2E2 /* User+CoreDataProperties.m */,
+				394771661CBA1AD90051C2E2 /* User.h */,
+				394771671CBA1AD90051C2E2 /* User.m */,
+				394771681CBA1AD90051C2E2 /* Hashtag+CoreDataProperties.h */,
+				394771691CBA1AD90051C2E2 /* Hashtag+CoreDataProperties.m */,
+				3947716A1CBA1AD90051C2E2 /* Hashtag.h */,
+				3947716B1CBA1AD90051C2E2 /* Hashtag.m */,
+				3947716C1CBA1AD90051C2E2 /* Picture+CoreDataProperties.h */,
+				3947716D1CBA1AD90051C2E2 /* Picture+CoreDataProperties.m */,
+				3947716E1CBA1AD90051C2E2 /* Picture.h */,
+				3947716F1CBA1AD90051C2E2 /* Picture.m */,
+				394771701CBA1AD90051C2E2 /* Comment+CoreDataProperties.h */,
+				394771711CBA1AD90051C2E2 /* Comment+CoreDataProperties.m */,
+				394771721CBA1AD90051C2E2 /* Comment.h */,
+				394771731CBA1AD90051C2E2 /* Comment.m */,
 				1A4A036F1CB9F0EB00D291EE /* Instagram */,
 				1A4A038C1CB9F0EC00D291EE /* InstagramTests */,
 				1A4A03971CB9F0EC00D291EE /* InstagramUITests */,
@@ -336,7 +376,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				394771741CBA1AD90051C2E2 /* User+CoreDataProperties.m in Sources */,
 				1A4A037E1CB9F0EB00D291EE /* Instagram.xcdatamodeld in Sources */,
+				3947717A1CBA1AD90051C2E2 /* Comment+CoreDataProperties.m in Sources */,
+				394771781CBA1AD90051C2E2 /* Picture+CoreDataProperties.m in Sources */,
+				394771751CBA1AD90051C2E2 /* User.m in Sources */,
+				394771761CBA1AD90051C2E2 /* Hashtag+CoreDataProperties.m in Sources */,
+				394771771CBA1AD90051C2E2 /* Hashtag.m in Sources */,
+				3947717B1CBA1AD90051C2E2 /* Comment.m in Sources */,
+				394771791CBA1AD90051C2E2 /* Picture.m in Sources */,
 				1A4A03751CB9F0EB00D291EE /* AppDelegate.m in Sources */,
 				1A8B345F1CBA0FD500A5FF0E /* ProfileViewController.m in Sources */,
 				1A4A03721CB9F0EB00D291EE /* main.m in Sources */,
