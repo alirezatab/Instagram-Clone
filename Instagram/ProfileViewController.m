@@ -45,7 +45,7 @@
 {
     UICollectionViewCell *collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell" forIndexPath:indexPath];
     
-    return collectionCell
+    return collectionCell;
 }
 
 
