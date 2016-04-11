@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     [super viewDidLoad];
     self.arrayOfPosts = [NSMutableArray new];
     self.arrayOfPosts = [@[[UIImage imageNamed:@"Charmander"],

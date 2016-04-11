@@ -25,6 +25,7 @@
 		1A8B34651CBB174500A5FF0E /* PostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B34641CBB174500A5FF0E /* PostDetailViewController.m */; };
 		392AE1331CBB369000A427FD /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 392AE1311CBB369000A427FD /* FeedTableViewCell.m */; };
 		392AE1341CBB369000A427FD /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392AE1321CBB369000A427FD /* FeedTableViewCell.xib */; };
+		392AE1371CBC1D6F00A427FD /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392AE1361CBC1D6F00A427FD /* MainTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		392AE1301CBB369000A427FD /* FeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell.h; sourceTree = "<group>"; };
 		392AE1311CBB369000A427FD /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
 		392AE1321CBB369000A427FD /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
+		392AE1351CBC1D6F00A427FD /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		392AE1361CBC1D6F00A427FD /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		394771641CBA1AD90051C2E2 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "../User+CoreDataProperties.h"; sourceTree = "<group>"; };
 		394771651CBA1AD90051C2E2 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "../User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		394771661CBA1AD90051C2E2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 				394771731CBA1AD90051C2E2 /* Comment.m */,
 				1A4A03811CB9F0EB00D291EE /* LaunchScreen.storyboard */,
 				1A4A03791CB9F0EB00D291EE /* Main.storyboard */,
+				392AE1351CBC1D6F00A427FD /* MainTabBarViewController.h */,
+				392AE1361CBC1D6F00A427FD /* MainTabBarViewController.m */,
 				1A4A037F1CB9F0EB00D291EE /* Assets.xcassets */,
 				1A4A037C1CB9F0EB00D291EE /* Instagram.xcdatamodeld */,
 				1A4A03B41CB9F51000D291EE /* Home Section */,
@@ -392,6 +397,7 @@
 				1A4A03751CB9F0EB00D291EE /* AppDelegate.m in Sources */,
 				1A8B34651CBB174500A5FF0E /* PostDetailViewController.m in Sources */,
 				392AE1331CBB369000A427FD /* FeedTableViewCell.m in Sources */,
+				392AE1371CBC1D6F00A427FD /* MainTabBarViewController.m in Sources */,
 				1A8B345F1CBA0FD500A5FF0E /* ProfileViewController.m in Sources */,
 				1A4A03721CB9F0EB00D291EE /* main.m in Sources */,
 			);

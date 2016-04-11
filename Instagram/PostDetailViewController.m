@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     
 }
 

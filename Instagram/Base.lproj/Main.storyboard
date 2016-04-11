@@ -5,15 +5,20 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="GJ1-Tq-cOc">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tZl-30-ur4" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tZl-30-ur4" customClass="MainTabBarViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="e4G-Qf-jeb">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="aDz-C5-PLl" kind="relationship" relationship="viewControllers" id="MoC-r2-Yv3"/>
                         <segue destination="mUt-hC-knl" kind="relationship" relationship="viewControllers" id="gZE-a8-bH4"/>
