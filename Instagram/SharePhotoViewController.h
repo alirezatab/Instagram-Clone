@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SharePhotoViewController : UIViewController
+@interface SharePhotoViewController : UIViewController <UITextViewDelegate>
 
 @property UIImage *shareImage;
 @property (weak, nonatomic) IBOutlet UIImageView *toBeSharedImageView;
+@property (weak, nonatomic) IBOutlet UITextView *userCommentTextView;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end

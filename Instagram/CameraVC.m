@@ -23,6 +23,9 @@
     self.tabBarController.delegate = self;
     
     [self noCameraInDevice];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
     //self.tabBarController.tabBar.hidden = YES;
 }
 
@@ -69,7 +72,7 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector((_cmd)));
     NSString *mediaType = info[UIImagePickerControllerMediaType];
-    self.choosenImage = info[UIImagePickerControllerEditedImage];
+    self.choosenImage = info[UIImagePickerControllerOriginalImage];
 
     NSLog(@"Media Type:   \"%@\"", mediaType);
     //NSLog(@"kUTTypeImage: \"%@\"", (NSString *)kUTTypeImage);
@@ -102,6 +105,7 @@
 }
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector((_cmd)));
+    self.tabBarController.tabBar.hidden = NO;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -112,6 +116,7 @@
     if ([segue.identifier isEqualToString:@"toShare"]) {
         SharePhotoViewController *desVC = segue.destinationViewController;
         desVC.shareImage = self.choosenImage;
+        //desVC.backgroundImageView = self.choosenImage;
     }
     
     
