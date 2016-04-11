@@ -6,15 +6,19 @@
 //  Copyright © 2016 EricDHong. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "ProfileViewController.h"
 #import "ProfileCollectionViewCell.h"
+#import "PostDetailViewController.h"
 
-@interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *profileSegmentedControl;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+
 
 @end
 
@@ -60,7 +64,15 @@
                            [UIImage imageNamed:@"Arcanine"],
                            [UIImage imageNamed:@"Nidoran"],
                            [UIImage imageNamed:@"Vaporeon"]]mutableCopy];
+    
+    self.profileImageView.image = [UIImage imageNamed:@"Bulbasaur"];
+    CALayer *imageLayer = self.profileImageView.layer;
+    [imageLayer setCornerRadius:47];
+    [imageLayer setMasksToBounds:YES];
+    
 }
+
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -164,6 +176,7 @@
         self.collectionView.hidden = YES;
     }
 }
+
 
 
 
