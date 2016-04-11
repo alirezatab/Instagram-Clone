@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="568" id="KGk-i7-Jjw" customClass="FeedTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="382" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="382" height="567"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3u-DW-kCd" userLabel="topSection">
+                        <rect key="frame" x="8" y="8" width="366" height="48"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSk-HH-vPN" userLabel="profileImage (topLeft)">
+                                <rect key="frame" x="8" y="8" width="36" height="36"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yj0-xC-gGF" userLabel="location (topLeft2)">
+                                <rect key="frame" x="58" y="23" width="252" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="JLK-qZ-Lav"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Heavenly Ski Resort, Lake Tahoe"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="13w" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhA-Wx-spO" userLabel="time (topRight)">
+                                <rect key="frame" x="324" y="15" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljo-pv-MXT" userLabel="username (topLeft1)">
+                                <rect key="frame" x="58" y="8" width="221" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="rcI-HZ-Y4f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <state key="normal" title="ar_t_2015">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="iko-21-MXD"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nEM-ZY-aGJ" userLabel="middle-mainImage">
+                        <rect key="frame" x="0.0" y="64" width="382" height="382"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LmN-ty-uAv">
+                        <rect key="frame" x="0.0" y="445" width="382" height="82"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2M-ah-mAf" userLabel="heartButton (bottomLeft1)">
+                                <rect key="frame" x="8" y="8" width="24" height="24"/>
+                                <state key="normal" title="Button" image="button-favorite"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9i-eh-Iy3" userLabel="commentButton (bottomLeft2)">
+                                <rect key="frame" x="40" y="8" width="24" height="24"/>
+                                <state key="normal" title="Button" image="button-comment"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="f3u-DW-kCd" secondAttribute="trailing" id="DMf-Ho-vkF"/>
+                    <constraint firstItem="f3u-DW-kCd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="HJG-z1-iLg"/>
+                    <constraint firstItem="f3u-DW-kCd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="chY-T2-keO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bottomLeft_commentButton" destination="D9i-eh-Iy3" id="qQ5-9C-ehr"/>
+                <outlet property="bottomLeft_heartButton" destination="k2M-ah-mAf" id="1wf-8E-AKj"/>
+                <outlet property="middle_mainImageView" destination="nEM-ZY-aGJ" id="iA1-fA-SLA"/>
+                <outlet property="topLeft_locationButton" destination="Yj0-xC-gGF" id="8Ot-eM-DwF"/>
+                <outlet property="topLeft_profileImageView" destination="BSk-HH-vPN" id="mnB-Xm-4nS"/>
+                <outlet property="topLeft_usernameButton" destination="ljo-pv-MXT" id="Uod-IY-mx3"/>
+                <outlet property="topRight_timeLabel" destination="fhA-Wx-spO" id="2Gd-7I-At2"/>
+            </connections>
+            <point key="canvasLocation" x="256" y="335"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="button-comment" width="40" height="40"/>
+        <image name="button-favorite" width="40" height="40"/>
+    </resources>
+</document>
