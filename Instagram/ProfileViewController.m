@@ -6,8 +6,10 @@
 //  Copyright © 2016 EricDHong. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import "ProfileViewController.h"
 #import "ProfileCollectionViewCell.h"
+#import "PostDetailViewController.h"
 
 @interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -60,6 +62,8 @@
                            [UIImage imageNamed:@"Arcanine"],
                            [UIImage imageNamed:@"Nidoran"],
                            [UIImage imageNamed:@"Vaporeon"]]mutableCopy];
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -164,6 +168,7 @@
         self.collectionView.hidden = YES;
     }
 }
+
 
 
 

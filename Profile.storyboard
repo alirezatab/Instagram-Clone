@@ -60,7 +60,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="yu5-kh-sxe" id="wAu-zu-czo"/>
-                                            <segue destination="wxG-Qo-Qmz" kind="presentation" modalTransitionStyle="flipHorizontal" id="mI4-tg-dOq"/>
+                                            <segue destination="wxG-Qo-Qmz" kind="presentation" identifier="collectionViewSegue" modalTransitionStyle="flipHorizontal" id="mI4-tg-dOq"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -183,7 +183,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7id-TY-EpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1522" y="1278"/>
+            <point key="canvasLocation" x="1565" y="1278"/>
         </scene>
     </scenes>
 </document>
