@@ -16,7 +16,6 @@
 		1A4A038E1CB9F0EC00D291EE /* InstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A038D1CB9F0EC00D291EE /* InstagramTests.m */; };
 		1A4A03991CB9F0EC00D291EE /* InstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A03981CB9F0EC00D291EE /* InstagramUITests.m */; };
 		1A4A03A71CB9F18500D291EE /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03A61CB9F18500D291EE /* Notifications.storyboard */; };
-		1A4A03AA1CB9F22200D291EE /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03A81CB9F22200D291EE /* Camera.storyboard */; };
 		1A4A03AF1CB9F28100D291EE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03AD1CB9F28100D291EE /* Search.storyboard */; };
 		1A4A03B11CB9F2AD00D291EE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B01CB9F2AD00D291EE /* Home.storyboard */; };
 		1A4A03BA1CBA08C900D291EE /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B91CBA08C900D291EE /* Profile.storyboard */; };
@@ -26,6 +25,12 @@
 		392AE1331CBB369000A427FD /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 392AE1311CBB369000A427FD /* FeedTableViewCell.m */; };
 		392AE1341CBB369000A427FD /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392AE1321CBB369000A427FD /* FeedTableViewCell.xib */; };
 		392AE1371CBC1D6F00A427FD /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392AE1361CBC1D6F00A427FD /* MainTabBarViewController.m */; };
+		C23F58EE1CBAF55B001BD7AE /* CameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F58ED1CBAF55B001BD7AE /* CameraVC.m */; };
+		C23F58F41CBAFCC3001BD7AE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23F58F31CBAFCC3001BD7AE /* MobileCoreServices.framework */; };
+		C23F58F71CBB1544001BD7AE /* SharePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F58F61CBB1544001BD7AE /* SharePhotoViewController.m */; };
+		C23F58F91CBB2BAB001BD7AE /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C23F58F81CBB2BAB001BD7AE /* Camera.storyboard */; };
+		C23F58FC1CBB62A4001BD7AE /* LibraryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F58FB1CBB62A4001BD7AE /* LibraryCollectionViewCell.m */; };
+		C2F7C7ED1CBC1DC70089284E /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F7C7EC1CBC1DC70089284E /* Photos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +67,6 @@
 		1A4A03981CB9F0EC00D291EE /* InstagramUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramUITests.m; sourceTree = "<group>"; };
 		1A4A039A1CB9F0EC00D291EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A4A03A61CB9F18500D291EE /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
-		1A4A03A91CB9F22200D291EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Camera.storyboard; sourceTree = "<group>"; };
 		1A4A03AE1CB9F28100D291EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		1A4A03B01CB9F2AD00D291EE /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		1A4A03B91CBA08C900D291EE /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = ../Profile.storyboard; sourceTree = "<group>"; };
@@ -93,6 +97,15 @@
 		394771711CBA1AD90051C2E2 /* Comment+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Comment+CoreDataProperties.m"; path = "../Comment+CoreDataProperties.m"; sourceTree = "<group>"; };
 		394771721CBA1AD90051C2E2 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = ../Comment.h; sourceTree = "<group>"; };
 		394771731CBA1AD90051C2E2 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = ../Comment.m; sourceTree = "<group>"; };
+		C23F58EC1CBAF55B001BD7AE /* CameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraVC.h; sourceTree = "<group>"; };
+		C23F58ED1CBAF55B001BD7AE /* CameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraVC.m; sourceTree = "<group>"; };
+		C23F58F31CBAFCC3001BD7AE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C23F58F51CBB1544001BD7AE /* SharePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharePhotoViewController.h; sourceTree = "<group>"; };
+		C23F58F61CBB1544001BD7AE /* SharePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharePhotoViewController.m; sourceTree = "<group>"; };
+		C23F58F81CBB2BAB001BD7AE /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		C23F58FA1CBB62A4001BD7AE /* LibraryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryCollectionViewCell.h; sourceTree = "<group>"; };
+		C23F58FB1CBB62A4001BD7AE /* LibraryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryCollectionViewCell.m; sourceTree = "<group>"; };
+		C2F7C7EC1CBC1DC70089284E /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +113,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F7C7ED1CBC1DC70089284E /* Photos.framework in Frameworks */,
+				C23F58F41CBAFCC3001BD7AE /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +138,8 @@
 		1A4A03641CB9F0EB00D291EE = {
 			isa = PBXGroup;
 			children = (
+				C2F7C7EC1CBC1DC70089284E /* Photos.framework */,
+				C23F58F31CBAFCC3001BD7AE /* MobileCoreServices.framework */,
 				1A4A036F1CB9F0EB00D291EE /* Instagram */,
 				1A4A038C1CB9F0EC00D291EE /* InstagramTests */,
 				1A4A03971CB9F0EC00D291EE /* InstagramUITests */,
@@ -223,7 +240,13 @@
 		1A4A03B61CB9F53600D291EE /* Camera Section */ = {
 			isa = PBXGroup;
 			children = (
-				1A4A03A81CB9F22200D291EE /* Camera.storyboard */,
+				C23F58FA1CBB62A4001BD7AE /* LibraryCollectionViewCell.h */,
+				C23F58FB1CBB62A4001BD7AE /* LibraryCollectionViewCell.m */,
+				C23F58EC1CBAF55B001BD7AE /* CameraVC.h */,
+				C23F58ED1CBAF55B001BD7AE /* CameraVC.m */,
+				C23F58F51CBB1544001BD7AE /* SharePhotoViewController.h */,
+				C23F58F61CBB1544001BD7AE /* SharePhotoViewController.m */,
+				C23F58F81CBB2BAB001BD7AE /* Camera.storyboard */,
 			);
 			name = "Camera Section";
 			sourceTree = "<group>";
@@ -320,7 +343,7 @@
 				TargetAttributes = {
 					1A4A036C1CB9F0EB00D291EE = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = X6GF343Z5R;
+						DevelopmentTeam = CD2SK749ZU;
 					};
 					1A4A03881CB9F0EC00D291EE = {
 						CreatedOnToolsVersion = 7.3;
@@ -361,13 +384,13 @@
 			files = (
 				392AE1341CBB369000A427FD /* FeedTableViewCell.xib in Resources */,
 				1A4A03B11CB9F2AD00D291EE /* Home.storyboard in Resources */,
+				C23F58F91CBB2BAB001BD7AE /* Camera.storyboard in Resources */,
 				1A4A03831CB9F0EB00D291EE /* LaunchScreen.storyboard in Resources */,
 				1A4A03BA1CBA08C900D291EE /* Profile.storyboard in Resources */,
 				1A4A03A71CB9F18500D291EE /* Notifications.storyboard in Resources */,
 				1A4A03801CB9F0EB00D291EE /* Assets.xcassets in Resources */,
 				1A4A037B1CB9F0EB00D291EE /* Main.storyboard in Resources */,
 				1A4A03AF1CB9F28100D291EE /* Search.storyboard in Resources */,
-				1A4A03AA1CB9F22200D291EE /* Camera.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +416,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8B34621CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m in Sources */,
+				C23F58F71CBB1544001BD7AE /* SharePhotoViewController.m in Sources */,
+				C23F58FC1CBB62A4001BD7AE /* LibraryCollectionViewCell.m in Sources */,
+				C23F58EE1CBAF55B001BD7AE /* CameraVC.m in Sources */,
 				1A4A037E1CB9F0EB00D291EE /* Instagram.xcdatamodeld in Sources */,
 				1A4A03751CB9F0EB00D291EE /* AppDelegate.m in Sources */,
 				1A8B34651CBB174500A5FF0E /* PostDetailViewController.m in Sources */,
@@ -449,14 +475,6 @@
 				1A4A03821CB9F0EB00D291EE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		1A4A03A81CB9F22200D291EE /* Camera.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A4A03A91CB9F22200D291EE /* Base */,
-			);
-			name = Camera.storyboard;
 			sourceTree = "<group>";
 		};
 		1A4A03AD1CB9F28100D291EE /* Search.storyboard */ = {
@@ -558,10 +576,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Instagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.EricDHong.Instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = InstagramProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -569,10 +591,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Instagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.EricDHong.Instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = InstagramProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
