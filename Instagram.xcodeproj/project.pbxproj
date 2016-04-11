@@ -25,6 +25,8 @@
 		C23F58F41CBAFCC3001BD7AE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23F58F31CBAFCC3001BD7AE /* MobileCoreServices.framework */; };
 		C23F58F71CBB1544001BD7AE /* SharePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F58F61CBB1544001BD7AE /* SharePhotoViewController.m */; };
 		C23F58F91CBB2BAB001BD7AE /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C23F58F81CBB2BAB001BD7AE /* Camera.storyboard */; };
+		C23F58FC1CBB62A4001BD7AE /* LibraryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F58FB1CBB62A4001BD7AE /* LibraryCollectionViewCell.m */; };
+		C2F7C7ED1CBC1DC70089284E /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F7C7EC1CBC1DC70089284E /* Photos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,9 @@
 		C23F58F51CBB1544001BD7AE /* SharePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharePhotoViewController.h; sourceTree = "<group>"; };
 		C23F58F61CBB1544001BD7AE /* SharePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharePhotoViewController.m; sourceTree = "<group>"; };
 		C23F58F81CBB2BAB001BD7AE /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		C23F58FA1CBB62A4001BD7AE /* LibraryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryCollectionViewCell.h; sourceTree = "<group>"; };
+		C23F58FB1CBB62A4001BD7AE /* LibraryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryCollectionViewCell.m; sourceTree = "<group>"; };
+		C2F7C7EC1CBC1DC70089284E /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F7C7ED1CBC1DC70089284E /* Photos.framework in Frameworks */,
 				C23F58F41CBAFCC3001BD7AE /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +127,7 @@
 		1A4A03641CB9F0EB00D291EE = {
 			isa = PBXGroup;
 			children = (
+				C2F7C7EC1CBC1DC70089284E /* Photos.framework */,
 				C23F58F31CBAFCC3001BD7AE /* MobileCoreServices.framework */,
 				1A4A036F1CB9F0EB00D291EE /* Instagram */,
 				1A4A038C1CB9F0EC00D291EE /* InstagramTests */,
@@ -220,6 +227,8 @@
 		1A4A03B61CB9F53600D291EE /* Camera Section */ = {
 			isa = PBXGroup;
 			children = (
+				C23F58FA1CBB62A4001BD7AE /* LibraryCollectionViewCell.h */,
+				C23F58FB1CBB62A4001BD7AE /* LibraryCollectionViewCell.m */,
 				C23F58EC1CBAF55B001BD7AE /* CameraVC.h */,
 				C23F58ED1CBAF55B001BD7AE /* CameraVC.m */,
 				C23F58F51CBB1544001BD7AE /* SharePhotoViewController.h */,
@@ -389,6 +398,7 @@
 			files = (
 				1A8B34621CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m in Sources */,
 				C23F58F71CBB1544001BD7AE /* SharePhotoViewController.m in Sources */,
+				C23F58FC1CBB62A4001BD7AE /* LibraryCollectionViewCell.m in Sources */,
 				C23F58EE1CBAF55B001BD7AE /* CameraVC.m in Sources */,
 				1A4A037E1CB9F0EB00D291EE /* Instagram.xcdatamodeld in Sources */,
 				1A4A03751CB9F0EB00D291EE /* AppDelegate.m in Sources */,

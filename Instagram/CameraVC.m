@@ -12,21 +12,47 @@
 #import "CameraVC.h"
 #import "SharePhotoViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "LibraryCollectionViewCell.h"
+#import <Photos/Photos.h>
 
-@interface CameraVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITabBarControllerDelegate>
+@interface CameraVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITabBarControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+
+//+(ALAssetsLibrary *) defaultAssetsLibrary;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIImageView *selectedLibraryCellImageView;
+@property NSMutableArray *arrayOfImagesInPhotoLibrary;
+@property NSMutableArray *collector;
+
+@property(nonatomic , strong) PHFetchResult *assetsFetchResults;
+@property(nonatomic , strong) PHCachingImageManager *imageManager;
+
 @end
 
 @implementation CameraVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tabBarController.delegate = self;
     
+    // Fetch all assets, sorted by date created.
+    PHFetchOptions *options = [[PHFetchOptions alloc] init];
+    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+    self.assetsFetchResults = [PHAsset fetchAssetsWithOptions:options];
+    
+    self.imageManager = [[PHCachingImageManager alloc] init];
+    
+    self.tabBarController.delegate = self;
+    self.navigationController.navigationBarHidden = NO;
     [self noCameraInDevice];
+    
+    self.collectionView.hidden =YES;
+    self.allPhotos.hidden = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    //self.tabBarController.tabBar.hidden = YES;
+    [super viewWillAppear:YES];
+    self.allPhotos.hidden = YES;
+//    //self.tabBarController.tabBar.hidden = YES;
 }
 
 // show error if no camera
@@ -42,6 +68,7 @@
 // set up camera
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     if (self.tabBarController.tabBar.selectedItem.tag == 2) {
+        
         [self turnCameraOn];
     }
 }
@@ -70,10 +97,13 @@
 #pragma mark - Camera delegates
 // fired when we take picture
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector((_cmd)));
+    
     NSString *mediaType = info[UIImagePickerControllerMediaType];
+    //retrieve the actual UIImage
     self.choosenImage = info[UIImagePickerControllerOriginalImage];
-
+    
     NSLog(@"Media Type:   \"%@\"", mediaType);
     //NSLog(@"kUTTypeImage: \"%@\"", (NSString *)kUTTypeImage);
     //NSLog(@"Media Info %@: ", info);
@@ -96,9 +126,11 @@
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error!"
                                                                        message:[error localizedDescription]
                                                                 preferredStyle:UIAlertControllerStyleAlert];
+        
         UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK"
                                                            style:UIAlertActionStyleCancel
                                                          handler:^(UIAlertAction * _Nonnull action){}];
+        
         [alert addAction:okButton];
         [self presentViewController:alert animated:YES completion:nil];
     }
@@ -109,6 +141,62 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+#pragma mark - Library
+//-(IBAction)onLibraryButtonPressed:(UIButton *)sender {
+//    self.allPhotos.hidden = NO;
+//    self.imageView.hidden = YES;
+//    self.takePhotoButton.hidden = YES;
+//}
+
+-(IBAction)allPhotos:(UIButton *)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+- (IBAction)onCameraSegmentedControlerPressed:(UISegmentedControl *)sender {
+    if (self.cameraSegmentedControl.selectedSegmentIndex == 0) {
+        self.allPhotos.hidden = NO;
+        self.collectionView.hidden =NO;
+    } else {
+        self.allPhotos.hidden = YES;
+    }
+}
+
+#pragma mark - Collection View
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    NSLog(@"%lu", self.assetsFetchResults.count);
+    return self.assetsFetchResults.count;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    LibraryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionCell" forIndexPath:indexPath];
+    
+    UIImageView *imageView = (UIImageView *)[cell viewWithTag:101];
+    PHAsset *asset = self.assetsFetchResults[indexPath.item];
+    
+    [self.imageManager requestImageForAsset:asset targetSize:imageView.frame.size contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage *result, NSDictionary *info)
+     {
+         cell.libraryImageView.image = result;
+         //imageView.image = result;
+     }];
+    
+    return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    PHAsset *asset = self.assetsFetchResults[indexPath.item];
+    
+    [self.imageManager requestImageForAsset:asset targetSize:CGSizeMake(200, 200) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage *result, NSDictionary *info)
+     {
+         self.selectedLibraryCellImageView.image = result;
+     }];
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout: (UICollectionView *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return CGSizeMake(self.collectionView.frame.size.width / 5, self.collectionView.frame.size.height / 5);
+}
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -118,8 +206,7 @@
         desVC.shareImage = self.choosenImage;
         //desVC.backgroundImageView = self.choosenImage;
     }
-    
-    
 }
-
 @end
+
+
