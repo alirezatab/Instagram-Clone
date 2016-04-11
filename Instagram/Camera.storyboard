@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yxl-bf-UEK">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--CameraVC-->
+        <scene sceneID="uAu-k5-Y37">
+            <objects>
+                <viewController id="cDY-sQ-dqh" customClass="CameraVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zlG-HL-stD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ttw-fE-Zdh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WYS-6i-s9C">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="B1b-4I-y7w"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="ccW-BG-PMm" kind="show" identifier="toShare" id="LUf-8y-0x6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="73G-h0-zn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="843" y="1269"/>
+        </scene>
+        <!--Share Photo View Controller-->
+        <scene sceneID="rCl-mk-WZR">
+            <objects>
+                <viewController id="ccW-BG-PMm" customClass="SharePhotoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z3z-vF-YrF"/>
+                        <viewControllerLayoutGuide type="bottom" id="aFv-HX-55d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5dx-d6-FCk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Segued to here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FZ-xF-zwi">
+                                <rect key="frame" x="241.5" y="289.5" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wt-xF-iVY">
+                                <rect key="frame" x="20" y="90" width="120" height="111"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9FZ-xF-zwi" firstAttribute="centerY" secondItem="5dx-d6-FCk" secondAttribute="centerY" id="Spi-jW-XPN"/>
+                            <constraint firstItem="9FZ-xF-zwi" firstAttribute="centerX" secondItem="5dx-d6-FCk" secondAttribute="centerX" id="va3-a4-Wds"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="toBeSharedImageView" destination="0wt-xF-iVY" id="9vE-oy-yMC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbo-TW-Gip" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1593" y="1269"/>
+        </scene>
+        <!--Camera-->
+        <scene sceneID="oQf-Bc-Pbc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yxl-bf-UEK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="Camera" id="Zku-9c-VGC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VCx-zA-3uY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="rvG-Jw-ws6">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="cDY-sQ-dqh" kind="relationship" relationship="rootViewController" id="W2a-29-upy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2oB-8W-aca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="87" y="1269"/>
+        </scene>
+    </scenes>
+</document>
