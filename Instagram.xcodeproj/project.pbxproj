@@ -22,6 +22,8 @@
 		1A4A03BA1CBA08C900D291EE /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A03B91CBA08C900D291EE /* Profile.storyboard */; };
 		1A8B345F1CBA0FD500A5FF0E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B345E1CBA0FD500A5FF0E /* ProfileViewController.m */; };
 		1A8B34621CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B34611CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m */; };
+		1A8B34651CBB174500A5FF0E /* PostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B34641CBB174500A5FF0E /* PostDetailViewController.m */; };
+		1A8B34691CBB36A300A5FF0E /* ScreamingSheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B34681CBB36A300A5FF0E /* ScreamingSheep.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,11 @@
 		1A4A03B91CBA08C900D291EE /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = ../Profile.storyboard; sourceTree = "<group>"; };
 		1A8B345D1CBA0FD500A5FF0E /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		1A8B345E1CBA0FD500A5FF0E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		1A8B34601CBA1A3C00A5FF0E /* ProfileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCollectionViewCell.h; sourceTree = "<group>"; };
+		1A8B34611CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCollectionViewCell.m; sourceTree = "<group>"; };
+		1A8B34631CBB174500A5FF0E /* PostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDetailViewController.h; sourceTree = "<group>"; };
+		1A8B34641CBB174500A5FF0E /* PostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDetailViewController.m; sourceTree = "<group>"; };
+		1A8B34681CBB36A300A5FF0E /* ScreamingSheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ScreamingSheep.mp3; path = ../../ScreamingSheep.mp3; sourceTree = "<group>"; };
 		394771641CBA1AD90051C2E2 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "../User+CoreDataProperties.h"; sourceTree = "<group>"; };
 		394771651CBA1AD90051C2E2 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "../User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		394771661CBA1AD90051C2E2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
@@ -80,8 +87,6 @@
 		394771711CBA1AD90051C2E2 /* Comment+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Comment+CoreDataProperties.m"; path = "../Comment+CoreDataProperties.m"; sourceTree = "<group>"; };
 		394771721CBA1AD90051C2E2 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = ../Comment.h; sourceTree = "<group>"; };
 		394771731CBA1AD90051C2E2 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = ../Comment.m; sourceTree = "<group>"; };
-		1A8B34601CBA1A3C00A5FF0E /* ProfileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCollectionViewCell.h; sourceTree = "<group>"; };
-		1A8B34611CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +137,7 @@
 		1A4A036F1CB9F0EB00D291EE /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				1A8B34681CBB36A300A5FF0E /* ScreamingSheep.mp3 */,
 				394771641CBA1AD90051C2E2 /* User+CoreDataProperties.h */,
 				394771651CBA1AD90051C2E2 /* User+CoreDataProperties.m */,
 				394771661CBA1AD90051C2E2 /* User.h */,
@@ -231,6 +237,8 @@
 				1A8B345E1CBA0FD500A5FF0E /* ProfileViewController.m */,
 				1A8B34601CBA1A3C00A5FF0E /* ProfileCollectionViewCell.h */,
 				1A8B34611CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m */,
+				1A8B34631CBB174500A5FF0E /* PostDetailViewController.h */,
+				1A8B34641CBB174500A5FF0E /* PostDetailViewController.m */,
 			);
 			name = "Profile Section";
 			sourceTree = "<group>";
@@ -347,6 +355,7 @@
 				1A4A03A71CB9F18500D291EE /* Notifications.storyboard in Resources */,
 				1A4A03801CB9F0EB00D291EE /* Assets.xcassets in Resources */,
 				1A4A037B1CB9F0EB00D291EE /* Main.storyboard in Resources */,
+				1A8B34691CBB36A300A5FF0E /* ScreamingSheep.mp3 in Resources */,
 				1A4A03AF1CB9F28100D291EE /* Search.storyboard in Resources */,
 				1A4A03AA1CB9F22200D291EE /* Camera.storyboard in Resources */,
 			);
@@ -375,14 +384,8 @@
 			files = (
 				1A8B34621CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m in Sources */,
 				1A4A037E1CB9F0EB00D291EE /* Instagram.xcdatamodeld in Sources */,
-				3947717A1CBA1AD90051C2E2 /* Comment+CoreDataProperties.m in Sources */,
-				394771781CBA1AD90051C2E2 /* Picture+CoreDataProperties.m in Sources */,
-				394771751CBA1AD90051C2E2 /* User.m in Sources */,
-				394771761CBA1AD90051C2E2 /* Hashtag+CoreDataProperties.m in Sources */,
-				394771771CBA1AD90051C2E2 /* Hashtag.m in Sources */,
-				3947717B1CBA1AD90051C2E2 /* Comment.m in Sources */,
-				394771791CBA1AD90051C2E2 /* Picture.m in Sources */,
 				1A4A03751CB9F0EB00D291EE /* AppDelegate.m in Sources */,
+				1A8B34651CBB174500A5FF0E /* PostDetailViewController.m in Sources */,
 				1A8B345F1CBA0FD500A5FF0E /* ProfileViewController.m in Sources */,
 				1A4A03721CB9F0EB00D291EE /* main.m in Sources */,
 			);
@@ -543,9 +546,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.EricDHong.Instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = InstagramProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -554,9 +558,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.EricDHong.Instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = InstagramProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

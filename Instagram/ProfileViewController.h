@@ -10,4 +10,6 @@
 
 @interface ProfileViewController : UIViewController
 
+@property NSArray *arrayOfPosts;
+
 @end
