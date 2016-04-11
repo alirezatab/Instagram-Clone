@@ -8,18 +8,20 @@
 
 #import "MainTabBarViewController.h"
 
-@interface MainTabBarViewController ()
 
+@interface MainTabBarViewController ()
 @end
 
-@implementation MainTabBarViewController
 
+@implementation MainTabBarViewController
 - (void)viewDidLoad {
+    [super viewDidLoad];
     NSLog(@"Welcome to Ourstagram");
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
-    [super viewDidLoad];
 
+
+    // start in Profile tab
+    self.selectedIndex = 4;
+    NSLog(@"selected tab = %i", self.selectedIndex);
 }
-
-
 @end
