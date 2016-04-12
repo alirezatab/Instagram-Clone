@@ -46,8 +46,6 @@
 
     // tab bar - start in Profile tab
     self.selectedIndex = 4;
-    ProfileViewController *feedVC = self.viewControllers[4];
-    feedVC.user = self.users[0];
 }
 
 

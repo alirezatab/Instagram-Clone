@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="568" id="KGk-i7-Jjw" customClass="FeedTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="382" height="568"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="538" id="KGk-i7-Jjw" customClass="FeedTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="382" height="538"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="382" height="567"/>
+                <rect key="frame" x="0.0" y="0.0" width="382" height="537"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3u-DW-kCd" userLabel="topSection">
@@ -46,29 +46,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Heavenly Ski Resort, Lake Tahoe"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13w" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhA-Wx-spO" userLabel="time (topRight)">
-                                <rect key="frame" x="316" y="15" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="spz-eG-fVW"/>
-                                    <constraint firstAttribute="height" constant="21" id="zpa-Xx-9dT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Yj0-xC-gGF" firstAttribute="leading" secondItem="BSk-HH-vPN" secondAttribute="trailing" constant="8" id="2Ow-fE-Jzi"/>
                             <constraint firstItem="BSk-HH-vPN" firstAttribute="top" secondItem="f3u-DW-kCd" secondAttribute="top" constant="8" id="8pT-jO-vme"/>
                             <constraint firstAttribute="height" constant="52" id="iko-21-MXD"/>
-                            <constraint firstItem="fhA-Wx-spO" firstAttribute="top" secondItem="f3u-DW-kCd" secondAttribute="top" constant="15" id="j3t-XF-uTj"/>
                             <constraint firstItem="Yj0-xC-gGF" firstAttribute="top" secondItem="ljo-pv-MXT" secondAttribute="bottom" constant="-6" id="k2S-1T-9YX"/>
                             <constraint firstItem="BSk-HH-vPN" firstAttribute="leading" secondItem="f3u-DW-kCd" secondAttribute="leading" constant="8" id="lne-Fx-bOG"/>
                             <constraint firstItem="Yj0-xC-gGF" firstAttribute="top" secondItem="f3u-DW-kCd" secondAttribute="top" id="n7v-nP-tOG"/>
                             <constraint firstItem="ljo-pv-MXT" firstAttribute="top" secondItem="f3u-DW-kCd" secondAttribute="top" constant="9" id="s0Q-cC-WL5"/>
                             <constraint firstItem="ljo-pv-MXT" firstAttribute="leading" secondItem="BSk-HH-vPN" secondAttribute="trailing" constant="8" id="u2E-Ra-XnO"/>
-                            <constraint firstAttribute="trailing" secondItem="fhA-Wx-spO" secondAttribute="trailing" constant="8" id="wBq-Kq-F9O"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -266,9 +254,8 @@
                 <outlet property="topLeft_locationButton" destination="Yj0-xC-gGF" id="8Ot-eM-DwF"/>
                 <outlet property="topLeft_profileImageView" destination="BSk-HH-vPN" id="mnB-Xm-4nS"/>
                 <outlet property="topLeft_usernameButton" destination="ljo-pv-MXT" id="Uod-IY-mx3"/>
-                <outlet property="topRight_timeLabel" destination="fhA-Wx-spO" id="2Gd-7I-At2"/>
             </connections>
-            <point key="canvasLocation" x="256" y="335"/>
+            <point key="canvasLocation" x="256" y="320"/>
         </tableViewCell>
     </objects>
     <resources>

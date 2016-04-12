@@ -88,9 +88,8 @@
 
     // current user + feed
     // TODO: set self.user in parentVC (MainTabBar)
-    self.user = [self coreGetUser0];
+    self.user = [self getMyUser];
     self.userPics = [self.user.pictures allObjects];
-    NSLog(@"user %@", self.user);
 }
 
 
@@ -104,6 +103,7 @@
 {
     [self toggleHiddenStateOfCollectionAndTableView];
 }
+
 
 #pragma mark - Collection View Methods
 
@@ -140,21 +140,22 @@
         return self.user.pictures.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feedCell" forIndexPath:indexPath];
     
     // TODO: hook up buttons (username, location, heart, comment, numLikes, commentUser)
     
     Picture *p = self.userPics[indexPath.row];
     User *u = p.owner;
-    
+
+    // image
+    cell.middle_mainImageView.image = [UIImage imageWithData:p.image];
+
+    // metadata
     cell.topLeft_profileImageView.image = [UIImage imageNamed:@"profile2"]; // TODO
     [cell.topLeft_usernameButton setTitle:u.username forState:UIControlStateNormal];
     [cell.topLeft_locationButton setTitle:@"somewhere in the desert, New Mexico" forState:UIControlStateNormal]; // TODO
-    cell.topRight_timeLabel.text = @"2d"; // TODO
-    cell.middle_mainImageView.image = [UIImage imageWithData:p.image];
     [cell.bottomLeft_numLikesButton setTitle:[NSString stringWithFormat:@"♥︎ %i likes", p.likedBy.count] forState:UIControlStateNormal];
-    cell.bottomLeft_numLikesButton.hidden = (p.likedBy.count == 0);  // hide count if 0 likes
+    cell.bottomLeft_numLikesButton.hidden = (p.likedBy.count == 0);
 
     // comments
     // TODO: multiple comment lines
@@ -203,7 +204,8 @@
     }
 }
 
--(User *)coreGetUser0 {
+// getMyUser() - returns User object for current user
+-(User *)getMyUser {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     if (! self.moc) {
         AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
