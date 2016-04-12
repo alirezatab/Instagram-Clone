@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *topLeft_profileImageView;
 @property (weak, nonatomic) IBOutlet UIButton *topLeft_usernameButton;
 @property (weak, nonatomic) IBOutlet UIButton *topLeft_locationButton;
-@property (weak, nonatomic) IBOutlet UILabel *topRight_timeLabel;
 // middle
 @property (weak, nonatomic) IBOutlet UIImageView *middle_mainImageView;
 // bottom

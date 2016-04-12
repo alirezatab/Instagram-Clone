@@ -10,24 +10,35 @@
 #import "ProfileViewController.h"
 #import "ProfileCollectionViewCell.h"
 #import "PostDetailViewController.h"
+#import "FeedTableViewCell.h"
+#import "User.h"
+#import "Picture.h"
+#import "Comment.h"
+#import "AppDelegate.h"
+
+
+@protocol hasUsers
+@property NSArray *users;
+@end
+
 
 @interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
-
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *profileSegmentedControl;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-
-
+@property NSArray *userPics;
+@property NSManagedObjectContext *moc;
 @end
 
-@implementation ProfileViewController
 
+@implementation ProfileViewController
 - (void)viewDidLoad
 {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     [super viewDidLoad];
+    
+    // collectionView
     self.arrayOfPosts = [NSMutableArray new];
     self.arrayOfPosts = [@[[UIImage imageNamed:@"Charmander"],
                            [UIImage imageNamed:@"Bulbasaur"],
@@ -65,12 +76,20 @@
                            [UIImage imageNamed:@"Arcanine"],
                            [UIImage imageNamed:@"Nidoran"],
                            [UIImage imageNamed:@"Vaporeon"]]mutableCopy];
-    
     self.profileImageView.image = [UIImage imageNamed:@"Bulbasaur"];
     CALayer *imageLayer = self.profileImageView.layer;
     [imageLayer setCornerRadius:47];
     [imageLayer setMasksToBounds:YES];
     
+
+
+    // tableView
+    [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
+
+    // current user + feed
+    // TODO: set self.user in parentVC (MainTabBar)
+    self.user = [self getMyUser];
+    self.userPics = [self.user.pictures allObjects];
 }
 
 
@@ -85,7 +104,8 @@
     [self toggleHiddenStateOfCollectionAndTableView];
 }
 
-#pragma - Collection View Methods
+
+#pragma mark - Collection View Methods
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -109,59 +129,65 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
 }
 
-#pragma - Table View Methods
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 5;
+
+#pragma mark - TableView
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    return 1;
+        return self.user.pictures.count;
 }
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableViewCell" forIndexPath:indexPath];
-
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feedCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = @"Hello";
-
+    // TODO: hook up buttons (username, location, heart, comment, numLikes, commentUser)
     
+    Picture *p = self.userPics[indexPath.row];
+    User *u = p.owner;
+
+    // image
+    cell.middle_mainImageView.image = [UIImage imageWithData:p.image];
+
+    // metadata
+    cell.topLeft_profileImageView.image = [UIImage imageNamed:@"profile2"]; // TODO
+    [cell.topLeft_usernameButton setTitle:u.username forState:UIControlStateNormal];
+    [cell.topLeft_locationButton setTitle:@"somewhere in the desert, New Mexico" forState:UIControlStateNormal]; // TODO
+    [cell.bottomLeft_numLikesButton setTitle:[NSString stringWithFormat:@"♥︎ %i likes", p.likedBy.count] forState:UIControlStateNormal];
+    cell.bottomLeft_numLikesButton.hidden = (p.likedBy.count == 0);
+
+    // comments
+    // TODO: multiple comment lines
+    NSArray *comments = [p.comments allObjects];
+    Comment *c = comments[0];
+    [cell.bottomLeft_commentUserButton setTitle:c.user.username forState:UIControlStateNormal];
+    cell.bottomLeft_commentTextLabel.text = c.text;
+    cell.bottomLeft_commentDateLabel.text = @"today";
+
     return cell;
 }
+// tableView sections
+//-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return 5;
+//}
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+//    if (section == 0) {
+//        return @"Section 1";
+//    } else if (section == 1) {
+//        return @"Section 2";
+//    } else if (section == 2) {
+//        return @"Section 3";
+//    } else if (section == 3) {
+//        return @"Section 4";
+//    } else {
+//        return @"Section 5";
+//    }
+//}
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
 
-    if (section == 0)
-    {
-        return @"Section 1";
-    }
-    else if (section == 1)
-    {
-        return @"Section 2";
-    }
-    else if (section == 2)
-    {
-        return @"Section 3";
-    }
-    else if (section == 3)
-    {
-        return @"Section 4";
-    }
-    else
-    {
-        return @"Section 5";
-    }
-    
-}
 
-#pragma - Custom Functions
+#pragma mark - Custom Functions
 
 //  Hides the table view or collection view depending on which segmented control was selected
 -(void)toggleHiddenStateOfCollectionAndTableView
@@ -178,6 +204,24 @@
     }
 }
 
+// getMyUser() - returns User object for current user
+-(User *)getMyUser {
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
+    if (! self.moc) {
+        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        self.moc = appDelegate.managedObjectContext;
+    }
+    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    NSError *error;
+    NSArray *allUsers = [self.moc executeFetchRequest:req error:&error];
+    if (error) {
+        NSLog(@"core load error: %@", error);
+        return nil;
+    }
+    NSLog(@"core load ok: %lu items", allUsers.count);
+
+    return allUsers[0];
+}
 
 
 

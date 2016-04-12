@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TqB-8F-v3u">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TqB-8F-v3u">
                                 <rect key="frame" x="0.0" y="158" width="600" height="29"/>
                                 <segments>
                                     <segment title="" image="Activity Grid 2-30"/>
@@ -69,15 +69,15 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="qiA-eL-ttf"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iyo-cX-GLK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="515" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iyo-cX-GLK">
                                 <rect key="frame" x="0.0" y="187" width="600" height="364"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" id="bRG-Qb-gF7" customClass="FeedTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" id="bRG-Qb-gF7" customClass="FeedTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="515"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bRG-Qb-gF7" id="CTZ-5z-RWh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="514"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -155,6 +155,12 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Iyo-cX-GLK" firstAttribute="top" secondItem="TqB-8F-v3u" secondAttribute="bottom" constant="1" id="6KI-YO-YKE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Iyo-cX-GLK" secondAttribute="trailing" constant="-20" id="FxG-Bd-cBL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Iyo-cX-GLK" secondAttribute="bottom" id="Ort-sl-hf4"/>
+                            <constraint firstItem="Iyo-cX-GLK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ZNl-B9-3km"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vs9-aj-QoN"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

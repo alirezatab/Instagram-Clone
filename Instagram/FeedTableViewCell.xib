@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="568" id="KGk-i7-Jjw" customClass="FeedTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="382" height="568"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="538" id="KGk-i7-Jjw" customClass="FeedTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="382" height="538"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="382" height="567"/>
+                <rect key="frame" x="0.0" y="0.0" width="382" height="537"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3u-DW-kCd" userLabel="topSection">
@@ -46,12 +46,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Heavenly Ski Resort, Lake Tahoe"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="13w" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhA-Wx-spO" userLabel="time (topRight)">
-                                <rect key="frame" x="324" y="15" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -70,14 +64,14 @@
                             </mask>
                         </variation>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nEM-ZY-aGJ" userLabel="middleSection-mainImage">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nEM-ZY-aGJ" userLabel="middleSection-mainImage">
                         <rect key="frame" x="8" y="60" width="366" height="366"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="nEM-ZY-aGJ" secondAttribute="height" multiplier="1:1" id="IUz-lD-nSs"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LmN-ty-uAv" userLabel="bottomSection">
-                        <rect key="frame" x="8" y="426" width="366" height="120"/>
+                        <rect key="frame" x="8" y="426" width="366" height="97"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2M-ah-mAf" userLabel="heartButton (bottomLeft1)">
                                 <rect key="frame" x="4" y="4" width="24" height="24"/>
@@ -201,7 +195,7 @@
                             <constraint firstItem="qcx-eh-lDN" firstAttribute="top" secondItem="D9i-eh-Iy3" secondAttribute="bottom" constant="8" id="qFc-g2-gTl"/>
                             <constraint firstItem="SDf-JF-24W" firstAttribute="top" secondItem="qcx-eh-lDN" secondAttribute="bottom" constant="8" id="rbI-kI-h8P"/>
                             <constraint firstItem="D9i-eh-Iy3" firstAttribute="top" secondItem="LmN-ty-uAv" secondAttribute="top" constant="4" id="sfO-ui-l5p"/>
-                            <constraint firstAttribute="height" constant="120" id="ucb-ri-ei2"/>
+                            <constraint firstAttribute="height" constant="97" id="ucb-ri-ei2"/>
                             <constraint firstItem="SDf-JF-24W" firstAttribute="leading" secondItem="LmN-ty-uAv" secondAttribute="leading" constant="8" id="w81-BX-e1f"/>
                             <constraint firstItem="Hb5-vq-GOX" firstAttribute="top" secondItem="SDf-JF-24W" secondAttribute="bottom" constant="8" id="xc1-J7-WoS"/>
                             <constraint firstItem="0V3-z7-Rpk" firstAttribute="leading" secondItem="LmN-ty-uAv" secondAttribute="leading" constant="8" id="zRl-nU-v1w"/>
@@ -260,9 +254,8 @@
                 <outlet property="topLeft_locationButton" destination="Yj0-xC-gGF" id="8Ot-eM-DwF"/>
                 <outlet property="topLeft_profileImageView" destination="BSk-HH-vPN" id="mnB-Xm-4nS"/>
                 <outlet property="topLeft_usernameButton" destination="ljo-pv-MXT" id="Uod-IY-mx3"/>
-                <outlet property="topRight_timeLabel" destination="fhA-Wx-spO" id="2Gd-7I-At2"/>
             </connections>
-            <point key="canvasLocation" x="256" y="335"/>
+            <point key="canvasLocation" x="256" y="320"/>
         </tableViewCell>
     </objects>
     <resources>
