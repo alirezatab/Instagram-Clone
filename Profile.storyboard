@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Gnd-O8-1bw">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -156,9 +156,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="4" title="" image="User-40" selectedImage="User Filled-40" id="12Q-Jd-QaI">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="Vs9-aj-QoN"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="dAF-oe-pIz" id="y7e-Bx-nBj"/>
@@ -169,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="875" y="1278"/>
+            <point key="canvasLocation" x="1687" y="1278"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="A5k-dh-nlL">
@@ -220,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31d-dF-6zV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2334" y="1278"/>
+            <point key="canvasLocation" x="3146" y="1278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ekx-Yp-8Xy">
@@ -238,7 +236,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7id-TY-EpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1565" y="1278"/>
+            <point key="canvasLocation" x="2377" y="1278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RCM-Jg-tLD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gnd-O8-1bw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="4" title="" image="User-40" selectedImage="User Filled-40" id="12Q-Jd-QaI">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oOH-ey-IB0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="i0h-eB-VSR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xbM-CI-Vul" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="875" y="1278"/>
         </scene>
     </scenes>
     <resources>
