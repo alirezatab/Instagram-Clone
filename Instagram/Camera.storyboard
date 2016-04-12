@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Camera-->
+        <!--CameraVC-->
         <scene sceneID="uAu-k5-Y37">
             <objects>
                 <viewController id="cDY-sQ-dqh" customClass="CameraVC" sceneMemberID="viewController">
@@ -105,7 +105,7 @@
                             <constraint firstItem="Ttw-fE-Zdh" firstAttribute="top" secondItem="c7g-p1-CUz" secondAttribute="bottom" id="rUc-kd-2UT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="Camera" id="Zku-9c-VGC"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="Compact Camera-40" selectedImage="Compact Camera Filled-40" id="Zku-9c-VGC"/>
                     <navigationItem key="navigationItem" id="B1b-4I-y7w"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -226,4 +226,8 @@
             <point key="canvasLocation" x="1593" y="1269"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Compact Camera Filled-40" width="40" height="40"/>
+        <image name="Compact Camera-40" width="40" height="40"/>
+    </resources>
 </document>

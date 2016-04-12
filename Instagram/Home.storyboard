@@ -45,4 +45,8 @@
             <point key="canvasLocation" x="-236" y="1267"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Home Filled-40" width="40" height="40"/>
+        <image name="Home-40" width="40" height="40"/>
+    </resources>
 </document>
