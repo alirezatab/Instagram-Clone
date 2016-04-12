@@ -34,7 +34,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" reuseIdentifier="CollectionCell" id="wcV-vC-l3D" customClass="LibraryCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -75,8 +75,43 @@
                             <constraint firstItem="NgQ-vZ-RK7" firstAttribute="top" secondItem="zlG-HL-stD" secondAttribute="bottom" id="vM7-8Z-fuc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="" image="Compact Camera-40" selectedImage="Compact Camera Filled-40" id="Zku-9c-VGC"/>
-                    <navigationItem key="navigationItem" id="B1b-4I-y7w"/>
+                    <navigationItem key="navigationItem" id="B1b-4I-y7w">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Ocf-1U-c50">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XQH-OF-iUs">
+                                <rect key="frame" x="20" y="7" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="All Photos"/>
+                                <connections>
+                                    <action selector="allPhotos:" destination="cDY-sQ-dqh" eventType="touchUpInside" id="lgh-OS-Wcm"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="wbG-rw-neq">
+                            <rect key="frame" x="201" y="7" width="198" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Library">
+                                    <size key="contentOffset" width="4" height="0.0"/>
+                                </segment>
+                                <segment title="Camera"/>
+                                <segment title="Video"/>
+                            </segments>
+                            <connections>
+                                <action selector="photosSegmentedControlerPressed:" destination="cDY-sQ-dqh" eventType="valueChanged" id="b4L-XX-DAd"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="nuE-LP-HlI">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bYD-Hs-PfN">
+                                <rect key="frame" x="540" y="7" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="ccW-BG-PMm" kind="show" identifier="SelectedLibraryPhoto" id="efB-m6-Ji4"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="c7g-p1-CUz" id="u64-sD-s7t"/>
@@ -229,8 +264,7 @@
             <point key="canvasLocation" x="821" y="1269"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Compact Camera Filled-40" width="40" height="40"/>
-        <image name="Compact Camera-40" width="40" height="40"/>
-    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="LUf-8y-0x6"/>
+    </inferredMetricsTieBreakers>
 </document>
