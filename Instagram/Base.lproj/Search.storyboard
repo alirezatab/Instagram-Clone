@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WhU-zx-S6r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="poy-op-jTg">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,29 +18,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gPc-8e-gQe"/>
+                    <navigationItem key="navigationItem" id="J2x-Qa-vUW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8a-yj-5rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="754" y="1283"/>
+            <point key="canvasLocation" x="636" y="1283"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="nUP-aN-D8E">
+        <!--Navigation Controller-->
+        <scene sceneID="ezd-av-kzG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WhU-zx-S6r" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="zaC-AT-hoe"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="poy-op-jTg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="Search-40" selectedImage="Search Filled-40" id="zaC-AT-hoe">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7JR-Ju-d0o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8La-WH-d7D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="mPE-y2-Ubs" kind="relationship" relationship="rootViewController" id="iv2-23-hcy"/>
+                        <segue destination="mPE-y2-Ubs" kind="relationship" relationship="rootViewController" id="me9-VI-a83"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AMY-7C-2Rn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YF7-Us-fXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-58" y="1283"/>
         </scene>
