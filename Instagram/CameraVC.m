@@ -17,10 +17,15 @@
 
 @interface CameraVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITabBarControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *pictureSegmentedControl;
+
 //+(ALAssetsLibrary *) defaultAssetsLibrary;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *selectedLibraryCellImageView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @property NSMutableArray *arrayOfImagesInPhotoLibrary;
 @property NSMutableArray *collector;
 
@@ -44,13 +49,13 @@
     self.tabBarController.delegate = self;
     self.navigationController.navigationBarHidden = NO;
     [self noCameraInDevice];
-    
-    self.collectionView.hidden =YES;
-    self.allPhotos.hidden = YES;
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    [self.pictureSegmentedControl setSelectedSegmentIndex:0];
+
     self.allPhotos.hidden = YES;
 //    //self.tabBarController.tabBar.hidden = YES;
 }
@@ -66,12 +71,15 @@
 }
 
 // set up camera
--(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    if (self.tabBarController.tabBar.selectedItem.tag == 2) {
-        
-        [self turnCameraOn];
-    }
-}
+//-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+//    if (self.tabBarController.tabBar.selectedItem.tag == 2) {
+//        NSLog(@"[%@ %@]", self.class, NSStringFromSelector((_cmd)));
+//        
+//        //[self presentViewController:self. ViewController.modalTransitionStyle animated:YES completion:nil];
+//        //[self turnCameraOn];
+//    }
+//}
+
 -(void)turnCameraOn {
     UIImagePickerController *picker = [[UIImagePickerController alloc]init];
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -121,7 +129,7 @@
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector((_cmd)));
 
     if (!error) {
-        [self performSegueWithIdentifier:@"toShare" sender:self];
+        [self performSegueWithIdentifier:@"CameraPictureToShare" sender:self];
     } else {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error!"
                                                                        message:[error localizedDescription]
@@ -154,12 +162,14 @@
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:nil];
 }
-- (IBAction)onCameraSegmentedControlerPressed:(UISegmentedControl *)sender {
-    if (self.cameraSegmentedControl.selectedSegmentIndex == 0) {
+- (IBAction)photosSegmentedControlerPressed:(UISegmentedControl *)sender {
+    if (self.pictureSegmentedControl.selectedSegmentIndex == 0) {
         self.allPhotos.hidden = NO;
         self.collectionView.hidden =NO;
-    } else {
+    } else if (self.pictureSegmentedControl.selectedSegmentIndex == 1){
+        [self turnCameraOn];
         self.allPhotos.hidden = YES;
+        self.collectionView.hidden =NO;
     }
 }
 
@@ -172,15 +182,13 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     LibraryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionCell" forIndexPath:indexPath];
     
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:101];
+    //UIImageView *imageView = (UIImageView *)[cell viewWithTag:101];
     PHAsset *asset = self.assetsFetchResults[indexPath.item];
     
-    [self.imageManager requestImageForAsset:asset targetSize:imageView.frame.size contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage *result, NSDictionary *info)
+    [self.imageManager requestImageForAsset:asset targetSize:CGSizeMake(40, 40) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage *result, NSDictionary *info)
      {
          cell.libraryImageView.image = result;
-         //imageView.image = result;
      }];
-    
     return cell;
 }
 
@@ -195,16 +203,20 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout: (UICollectionView *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    return CGSizeMake(self.collectionView.frame.size.width / 5, self.collectionView.frame.size.height / 5);
+    
+    return CGSizeMake(self.collectionView.frame.size.width / 5, self.collectionView.frame.size.height / 2.5);
 }
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"[%@ %@] ->%@", self.class, NSStringFromSelector((_cmd)), segue.identifier);
-    if ([segue.identifier isEqualToString:@"toShare"]) {
+    if ([segue.identifier isEqualToString:@"CameraPictureToShare"]) {
         SharePhotoViewController *desVC = segue.destinationViewController;
         desVC.shareImage = self.choosenImage;
         //desVC.backgroundImageView = self.choosenImage;
+    } else if ([segue.identifier isEqualToString:@"SelectedLibraryPhoto"]){
+        SharePhotoViewController *desVC = segue.destinationViewController;
+        desVC.shareImage = self.selectedLibraryCellImageView.image;
     }
 }
 @end
