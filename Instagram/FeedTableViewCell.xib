@@ -46,8 +46,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Heavenly Ski Resort, Lake Tahoe"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="13w" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhA-Wx-spO" userLabel="time (topRight)">
-                                <rect key="frame" x="324" y="15" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13w" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhA-Wx-spO" userLabel="time (topRight)">
+                                <rect key="frame" x="316" y="15" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="spz-eG-fVW"/>
+                                    <constraint firstAttribute="height" constant="21" id="zpa-Xx-9dT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -58,11 +62,13 @@
                             <constraint firstItem="Yj0-xC-gGF" firstAttribute="leading" secondItem="BSk-HH-vPN" secondAttribute="trailing" constant="8" id="2Ow-fE-Jzi"/>
                             <constraint firstItem="BSk-HH-vPN" firstAttribute="top" secondItem="f3u-DW-kCd" secondAttribute="top" constant="8" id="8pT-jO-vme"/>
                             <constraint firstAttribute="height" constant="52" id="iko-21-MXD"/>
+                            <constraint firstItem="fhA-Wx-spO" firstAttribute="top" secondItem="f3u-DW-kCd" secondAttribute="top" constant="15" id="j3t-XF-uTj"/>
                             <constraint firstItem="Yj0-xC-gGF" firstAttribute="top" secondItem="ljo-pv-MXT" secondAttribute="bottom" constant="-6" id="k2S-1T-9YX"/>
                             <constraint firstItem="BSk-HH-vPN" firstAttribute="leading" secondItem="f3u-DW-kCd" secondAttribute="leading" constant="8" id="lne-Fx-bOG"/>
                             <constraint firstItem="Yj0-xC-gGF" firstAttribute="top" secondItem="f3u-DW-kCd" secondAttribute="top" id="n7v-nP-tOG"/>
                             <constraint firstItem="ljo-pv-MXT" firstAttribute="top" secondItem="f3u-DW-kCd" secondAttribute="top" constant="9" id="s0Q-cC-WL5"/>
                             <constraint firstItem="ljo-pv-MXT" firstAttribute="leading" secondItem="BSk-HH-vPN" secondAttribute="trailing" constant="8" id="u2E-Ra-XnO"/>
+                            <constraint firstAttribute="trailing" secondItem="fhA-Wx-spO" secondAttribute="trailing" constant="8" id="wBq-Kq-F9O"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -70,14 +76,14 @@
                             </mask>
                         </variation>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nEM-ZY-aGJ" userLabel="middleSection-mainImage">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nEM-ZY-aGJ" userLabel="middleSection-mainImage">
                         <rect key="frame" x="8" y="60" width="366" height="366"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="nEM-ZY-aGJ" secondAttribute="height" multiplier="1:1" id="IUz-lD-nSs"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LmN-ty-uAv" userLabel="bottomSection">
-                        <rect key="frame" x="8" y="426" width="366" height="120"/>
+                        <rect key="frame" x="8" y="426" width="366" height="97"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2M-ah-mAf" userLabel="heartButton (bottomLeft1)">
                                 <rect key="frame" x="4" y="4" width="24" height="24"/>
@@ -201,7 +207,7 @@
                             <constraint firstItem="qcx-eh-lDN" firstAttribute="top" secondItem="D9i-eh-Iy3" secondAttribute="bottom" constant="8" id="qFc-g2-gTl"/>
                             <constraint firstItem="SDf-JF-24W" firstAttribute="top" secondItem="qcx-eh-lDN" secondAttribute="bottom" constant="8" id="rbI-kI-h8P"/>
                             <constraint firstItem="D9i-eh-Iy3" firstAttribute="top" secondItem="LmN-ty-uAv" secondAttribute="top" constant="4" id="sfO-ui-l5p"/>
-                            <constraint firstAttribute="height" constant="120" id="ucb-ri-ei2"/>
+                            <constraint firstAttribute="height" constant="97" id="ucb-ri-ei2"/>
                             <constraint firstItem="SDf-JF-24W" firstAttribute="leading" secondItem="LmN-ty-uAv" secondAttribute="leading" constant="8" id="w81-BX-e1f"/>
                             <constraint firstItem="Hb5-vq-GOX" firstAttribute="top" secondItem="SDf-JF-24W" secondAttribute="bottom" constant="8" id="xc1-J7-WoS"/>
                             <constraint firstItem="0V3-z7-Rpk" firstAttribute="leading" secondItem="LmN-ty-uAv" secondAttribute="leading" constant="8" id="zRl-nU-v1w"/>

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface ProfileViewController : UIViewController
-
+@property User *user;
 @property NSArray *arrayOfPosts;
-
 @end
