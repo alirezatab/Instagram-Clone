@@ -45,4 +45,8 @@
             <point key="canvasLocation" x="675" y="1232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Wedding Photo Filled-40" width="40" height="40"/>
+        <image name="Wedding Photo-40" width="40" height="40"/>
+    </resources>
 </document>

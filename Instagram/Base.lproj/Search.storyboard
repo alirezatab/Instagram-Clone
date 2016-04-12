@@ -45,4 +45,8 @@
             <point key="canvasLocation" x="-58" y="1283"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Search Filled-40" width="40" height="40"/>
+        <image name="Search-40" width="40" height="40"/>
+    </resources>
 </document>
