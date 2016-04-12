@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
+        <!--Profile View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -21,10 +21,10 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TqB-8F-v3u">
                                 <rect key="frame" x="0.0" y="158" width="600" height="29"/>
                                 <segments>
-                                    <segment title="Collection View"/>
-                                    <segment title="TableView"/>
-                                    <segment title="Map"/>
-                                    <segment title="Tagged"/>
+                                    <segment title="" image="Activity Grid 2-30"/>
+                                    <segment title="" image="Menu Filled-20"/>
+                                    <segment title="" image="Marker-20"/>
+                                    <segment title="" image="Price Tag-20"/>
                                 </segments>
                                 <connections>
                                     <action selector="onSegmentedControlPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="lGW-nc-Vtr"/>
@@ -156,7 +156,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="12Q-Jd-QaI"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="" image="User-40" selectedImage="User Filled-40" id="12Q-Jd-QaI">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="dAF-oe-pIz" id="y7e-Bx-nBj"/>
@@ -239,4 +241,12 @@
             <point key="canvasLocation" x="1565" y="1278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Activity Grid 2-30" width="30" height="30"/>
+        <image name="Marker-20" width="20" height="20"/>
+        <image name="Menu Filled-20" width="20" height="20"/>
+        <image name="Price Tag-20" width="20" height="20"/>
+        <image name="User Filled-40" width="40" height="40"/>
+        <image name="User-40" width="40" height="40"/>
+    </resources>
 </document>

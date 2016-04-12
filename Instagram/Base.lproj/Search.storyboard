@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Search-->
+        <!--View Controller-->
         <scene sceneID="eAR-SB-RDd">
             <objects>
                 <viewController id="mPE-y2-Ubs" sceneMemberID="viewController">
@@ -18,7 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" id="zaC-AT-hoe"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="Search-40" selectedImage="Search Filled-40" id="zaC-AT-hoe">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8a-yj-5rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -26,4 +28,8 @@
             <point key="canvasLocation" x="-58" y="1283"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Search Filled-40" width="40" height="40"/>
+        <image name="Search-40" width="40" height="40"/>
+    </resources>
 </document>

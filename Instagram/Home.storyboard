@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--View Controller-->
         <scene sceneID="JFA-S9-cI4">
             <objects>
                 <viewController id="1Ui-IO-Vxo" sceneMemberID="viewController">
@@ -18,7 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="FLv-nh-7Td"/>
+                    <tabBarItem key="tabBarItem" title="" image="Home-40" selectedImage="Home Filled-40" id="FLv-nh-7Td">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpF-Ki-3Va" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -26,4 +28,8 @@
             <point key="canvasLocation" x="-236" y="1267"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Home Filled-40" width="40" height="40"/>
+        <image name="Home-40" width="40" height="40"/>
+    </resources>
 </document>

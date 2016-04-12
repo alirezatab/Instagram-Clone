@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Notifications-->
+        <!--View Controller-->
         <scene sceneID="g7G-wD-f1k">
             <objects>
                 <viewController id="EkF-7r-kcO" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notifications" id="bHz-Gz-Ef8"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="Wedding Photo-40" selectedImage="Wedding Photo Filled-40" id="bHz-Gz-Ef8"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uc0-z6-99p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -26,4 +26,8 @@
             <point key="canvasLocation" x="675" y="1232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Wedding Photo Filled-40" width="40" height="40"/>
+        <image name="Wedding Photo-40" width="40" height="40"/>
+    </resources>
 </document>

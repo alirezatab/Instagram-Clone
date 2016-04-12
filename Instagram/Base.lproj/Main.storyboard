@@ -12,7 +12,6 @@
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="e4G-Qf-jeb">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="aDz-C5-PLl" kind="relationship" relationship="viewControllers" id="MoC-r2-Yv3"/>
