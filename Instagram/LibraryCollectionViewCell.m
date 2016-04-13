@@ -10,4 +10,10 @@
 
 @implementation LibraryCollectionViewCell
 
+- (void)prepareForReuse
+{
+    [super prepareForReuse];
+    self.libraryImageView.image = nil;
+}
+
 @end

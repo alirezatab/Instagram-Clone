@@ -14,6 +14,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "LibraryCollectionViewCell.h"
 #import <Photos/Photos.h>
+#import "CustomImageFlowLayout.h"
 
 @interface CameraVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITabBarControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -28,6 +29,8 @@
 
 @property NSMutableArray *arrayOfImagesInPhotoLibrary;
 @property NSMutableArray *collector;
+@property UIImage *snappedCameraImage;
+@property UIImage *snappedCameraImageFlipped;
 
 @property(nonatomic , strong) PHFetchResult *assetsFetchResults;
 @property(nonatomic , strong) PHCachingImageManager *imageManager;
@@ -38,6 +41,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.collectionView.collectionViewLayout = [[CustomImageFlowLayout alloc] init];
+    self.collectionView.backgroundColor = [UIColor blackColor];
     
     // Fetch all assets, sorted by date created.
     PHFetchOptions *options = [[PHFetchOptions alloc] init];
@@ -109,8 +115,10 @@
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector((_cmd)));
     
     NSString *mediaType = info[UIImagePickerControllerMediaType];
-    //retrieve the actual UIImage
-    self.choosenImage = info[UIImagePickerControllerOriginalImage];
+    //retrieve the actual UIImage when the picture is captures
+    self.snappedCameraImage = info[UIImagePickerControllerOriginalImage];
+    //flips the picture to have right oriantation
+    //self.snappedCameraImageFlipped = [UIImage imageWithCGImage:self.snappedCameraImage.CGImage scale:self.snappedCameraImage.scale orientation:UIImageOrientationLeft];
     
     NSLog(@"Media Type:   \"%@\"", mediaType);
     //NSLog(@"kUTTypeImage: \"%@\"", (NSString *)kUTTypeImage);
@@ -162,6 +170,7 @@
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:nil];
 }
+
 - (IBAction)photosSegmentedControlerPressed:(UISegmentedControl *)sender {
     if (self.pictureSegmentedControl.selectedSegmentIndex == 0) {
         self.allPhotos.hidden = NO;
@@ -173,9 +182,9 @@
     }
 }
 
-#pragma mark - Collection View
+#pragma mark - collectionView methods
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    NSLog(@"%lu", self.assetsFetchResults.count);
+    //NSLog(@"%lu", self.assetsFetchResults.count);
     return self.assetsFetchResults.count;
 }
 
@@ -202,17 +211,17 @@
      }];
 }
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout: (UICollectionView *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
-    return CGSizeMake(self.collectionView.frame.size.width / 5, self.collectionView.frame.size.height / 2.5);
-}
+//-(CGSize)collectionView:(UICollectionView *)collectionView layout: (UICollectionView *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+//    
+//    return CGSizeMake(self.collectionView.frame.size.width / 5, self.collectionView.frame.size.height / 2.5);
+//}
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"[%@ %@] ->%@", self.class, NSStringFromSelector((_cmd)), segue.identifier);
     if ([segue.identifier isEqualToString:@"CameraPictureToShare"]) {
         SharePhotoViewController *desVC = segue.destinationViewController;
-        desVC.shareImage = self.choosenImage;
+        desVC.shareImage = self.snappedCameraImage;
         //desVC.backgroundImageView = self.choosenImage;
     } else if ([segue.identifier isEqualToString:@"SelectedLibraryPhoto"]){
         SharePhotoViewController *desVC = segue.destinationViewController;

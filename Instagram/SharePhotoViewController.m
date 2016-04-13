@@ -72,9 +72,19 @@
     // user: getMyUser()
     // image: self.shareImage
     // comment: self.userCommentTextView.text
-    
+//    if ([self.userCommentTextView.text containsString:@"Write a caption..."]) {
+//        self.userCommentTextView.text = @"";
+//    }
     [CoreDataManager addPicture:self.shareImage withComment:self.userCommentTextView.text fromUser:[self getMyUser]];
     [CoreDataManager save];
+    
+    // locally store the navigation controller since
+    // self.navigationController will be nil once we are popped
+    UINavigationController *navController = self.navigationController;
+
+    // Pop this controller and replace with another
+    [navController popViewControllerAnimated:NO];
+    //[navController pushViewController:someViewController animated:NO];
 }
 
 // getMyUser() - returns User object for current user

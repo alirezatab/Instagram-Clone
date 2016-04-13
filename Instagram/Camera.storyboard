@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NgQ-vZ-RK7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NgQ-vZ-RK7">
                                 <rect key="frame" x="0.0" y="64" width="600" height="293"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c7g-p1-CUz">
@@ -27,32 +27,44 @@
                                     <constraint firstAttribute="height" constant="200" id="Tvo-Qc-DWs"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qqt-yU-ZNw">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="115" height="99"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" reuseIdentifier="CollectionCell" id="wcV-vC-l3D" customClass="LibraryCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="115" height="99"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="115" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4pH-oE-svN">
-                                                    <rect key="frame" x="8" y="8" width="34" height="34"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4pH-oE-svN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="115" height="99"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="1" green="0.99700447841944773" blue="0.9549215061561126" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="4pH-oE-svN" firstAttribute="top" secondItem="wcV-vC-l3D" secondAttribute="topMargin" constant="-8" id="4lU-23-SKi"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="4pH-oE-svN" secondAttribute="trailing" constant="-8" id="BIa-2M-oaN"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="4pH-oE-svN" secondAttribute="bottom" id="NFr-xw-Ymi"/>
                                             <constraint firstItem="4pH-oE-svN" firstAttribute="top" secondItem="wcV-vC-l3D" secondAttribute="topMargin" id="RJW-Jz-jKV"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="4pH-oE-svN" secondAttribute="trailing" id="bIX-Ep-v9t"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="4pH-oE-svN" secondAttribute="bottom" constant="-8" id="daZ-Cb-q1o"/>
                                             <constraint firstItem="4pH-oE-svN" firstAttribute="leading" secondItem="wcV-vC-l3D" secondAttribute="leadingMargin" id="mE9-Bv-0Kp"/>
+                                            <constraint firstItem="4pH-oE-svN" firstAttribute="leading" secondItem="wcV-vC-l3D" secondAttribute="leadingMargin" constant="-8" id="sOm-r4-kj5"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="NFr-xw-Ymi"/>
+                                                <exclude reference="RJW-Jz-jKV"/>
+                                                <exclude reference="bIX-Ep-v9t"/>
+                                                <exclude reference="mE9-Bv-0Kp"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="libraryImageView" destination="4pH-oE-svN" id="OvG-9x-0Pa"/>
                                         </connections>
@@ -64,7 +76,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="c7g-p1-CUz" firstAttribute="top" secondItem="NgQ-vZ-RK7" secondAttribute="bottom" constant="-6" id="8s0-29-BJA"/>
                             <constraint firstItem="c7g-p1-CUz" firstAttribute="leading" secondItem="WYS-6i-s9C" secondAttribute="leadingMargin" constant="-20" id="Sxr-CC-L4D"/>
@@ -174,6 +186,15 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-Re-NIP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Rui-Vz-IEk"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="vec-E8-zB2"/>
+                                </items>
+                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jh-so-1uC">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.20393571048479053" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -186,15 +207,6 @@
                                     <action selector="onShareButtonPressed:" destination="ccW-BG-PMm" eventType="touchUpInside" id="D2x-sJ-PGv"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-Re-NIP">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="Rui-Vz-IEk"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Title" id="vec-E8-zB2"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

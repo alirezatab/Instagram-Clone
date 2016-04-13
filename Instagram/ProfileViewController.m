@@ -16,6 +16,7 @@
 #import "Comment.h"
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
+#import "CustomImageFlowLayout.h"
 
 
 @interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
@@ -30,6 +31,9 @@
 @implementation ProfileViewController
 - (void)viewDidLoad
 {
+    self.collectionView.collectionViewLayout = [[CustomImageFlowLayout alloc] init];
+    self.collectionView.backgroundColor = [UIColor blackColor];
+    
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     [super viewDidLoad];
 
@@ -96,9 +100,9 @@
     return collectionCell;
 }
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout: (UICollectionView *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    return CGSizeMake(self.collectionView.frame.size.width / 5, self.collectionView.frame.size.height / 5);
-}
+//-(CGSize)collectionView:(UICollectionView *)collectionView layout: (UICollectionView *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+//    return CGSizeMake(self.collectionView.frame.size.width / 5, self.collectionView.frame.size.height / 5);
+//}
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
@@ -120,7 +124,7 @@
     [cell.topLeft_usernameButton setTitle:u.username forState:UIControlStateNormal];
     [cell.topLeft_locationButton setTitle:p.location forState:UIControlStateNormal];
     cell.middle_mainImageView.image = [UIImage imageWithData:p.image];
-    [cell.bottomLeft_numLikesButton setTitle:[NSString stringWithFormat:@"♥︎ %i likes", p.likedBy.count] forState:UIControlStateNormal];
+    [cell.bottomLeft_numLikesButton setTitle:[NSString stringWithFormat:@"♥︎ %lu likes", p.likedBy.count] forState:UIControlStateNormal];
 
     // comments
     NSArray *comments = [p.comments allObjects];

@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 
 
-@property UIImage *choosenImage;
+
 
 @end

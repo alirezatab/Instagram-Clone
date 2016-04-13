@@ -40,6 +40,7 @@
 		C23F58F91CBB2BAB001BD7AE /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C23F58F81CBB2BAB001BD7AE /* Camera.storyboard */; };
 		C23F58FC1CBB62A4001BD7AE /* LibraryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F58FB1CBB62A4001BD7AE /* LibraryCollectionViewCell.m */; };
 		C2F7C7ED1CBC1DC70089284E /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F7C7EC1CBC1DC70089284E /* Photos.framework */; };
+		C2F7C8441CBEA1220089284E /* CustomImageFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F7C8431CBEA1220089284E /* CustomImageFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,8 @@
 		C23F58FA1CBB62A4001BD7AE /* LibraryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryCollectionViewCell.h; sourceTree = "<group>"; };
 		C23F58FB1CBB62A4001BD7AE /* LibraryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryCollectionViewCell.m; sourceTree = "<group>"; };
 		C2F7C7EC1CBC1DC70089284E /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		C2F7C8421CBEA1220089284E /* CustomImageFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImageFlowLayout.h; sourceTree = "<group>"; };
+		C2F7C8431CBEA1220089284E /* CustomImageFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,8 @@
 		1A4A03B61CB9F53600D291EE /* Camera Section */ = {
 			isa = PBXGroup;
 			children = (
+				C2F7C8421CBEA1220089284E /* CustomImageFlowLayout.h */,
+				C2F7C8431CBEA1220089284E /* CustomImageFlowLayout.m */,
 				C23F58FA1CBB62A4001BD7AE /* LibraryCollectionViewCell.h */,
 				C23F58FB1CBB62A4001BD7AE /* LibraryCollectionViewCell.m */,
 				C23F58EC1CBAF55B001BD7AE /* CameraVC.h */,
@@ -443,6 +448,7 @@
 				392AE1C01CBD708D00A427FD /* Picture+CoreDataProperties.m in Sources */,
 				392AE1C51CBD708D00A427FD /* Comment.m in Sources */,
 				C23F58FC1CBB62A4001BD7AE /* LibraryCollectionViewCell.m in Sources */,
+				C2F7C8441CBEA1220089284E /* CustomImageFlowLayout.m in Sources */,
 				392AE1C41CBD708D00A427FD /* Comment+CoreDataProperties.m in Sources */,
 				C23F58EE1CBAF55B001BD7AE /* CameraVC.m in Sources */,
 				1A4A037E1CB9F0EB00D291EE /* Instagram.xcdatamodeld in Sources */,
