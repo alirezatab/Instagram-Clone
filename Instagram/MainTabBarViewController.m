@@ -17,12 +17,19 @@
 @interface MainTabBarViewController () <UITabBarControllerDelegate>
 @property NSManagedObjectContext *moc;
 @property NSArray *users;
+@property NSArray *arrayOfTabBarIcons;
 @end
 
 
 @implementation MainTabBarViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.arrayOfTabBarIcons = @[[UIImage imageNamed:@"Home-40"],
+                                [UIImage imageNamed:@"Search-40"],
+                                [UIImage imageNamed:@"Compact Camera-40"],
+                                [UIImage imageNamed:@"Wedding Photo-40"],
+                                [UIImage imageNamed:@"User-40"]];
 
     NSLog(@"Welcome to Ourstagram");
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
@@ -47,7 +54,7 @@
     
     // sets the highlight image color to white
     [[UITabBar appearance] setTintColor:[UIColor blackColor]];
-    //[[UITabBar appearance]setAlpha:0.25];
+    [[UITabBar appearance]setAlpha:0.25];
     
 }
 
