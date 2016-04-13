@@ -7,18 +7,22 @@
 //
 
 #import "SharePhotoViewController.h"
+#import "User.h"
+#import "Comment.h"
+#import "Picture.h"
+#import "CoreDataManager.h"
+
 
 @interface SharePhotoViewController ()
-
 @end
 
-@implementation SharePhotoViewController
 
+@implementation SharePhotoViewController
 - (void)viewDidLoad {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector((_cmd)));
     [super viewDidLoad];
+
     self.toBeSharedImageView.image = self.shareImage;
-   // self.backgroundImageView.image = self.shareImage;
     self.userCommentTextView.text = @"Write a caption...";
     self.userCommentTextView.textColor = [UIColor lightGrayColor];
     self.userCommentTextView.delegate = self;
@@ -58,8 +62,20 @@
 }
 
 - (IBAction)onShareButtonPressed:(UIButton *)sender {
-    NSLog(@"Share Button Pressed");
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
+
+    // user: getMyUser()
+    // image: self.shareImage
+    // comment: self.userCommentTextView.text
+
+    [CoreDataManager addPicture:self.shareImage withComment:self.userCommentTextView.text fromUser:[self getMyUser]];
+    [CoreDataManager save];
 }
 
+// getMyUser() - returns User object for current user
+// TODO: this should come from parent VC instead (?)
+-(User *)getMyUser {
+    return [CoreDataManager getUserZero];
+}
 
 @end

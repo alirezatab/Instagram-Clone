@@ -33,6 +33,7 @@
 		392AE1C51CBD708D00A427FD /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 392AE1BB1CBD708D00A427FD /* Comment.m */; };
 		392AE1C61CBD708D00A427FD /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 392AE1BD1CBD708D00A427FD /* User+CoreDataProperties.m */; };
 		392AE1C71CBD708D00A427FD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 392AE1BF1CBD708D00A427FD /* User.m */; };
+		3982502E1CBDD0E300E0553B /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3982502D1CBDD0E300E0553B /* CoreDataManager.m */; };
 		C23F58EE1CBAF55B001BD7AE /* CameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F58ED1CBAF55B001BD7AE /* CameraVC.m */; };
 		C23F58F41CBAFCC3001BD7AE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23F58F31CBAFCC3001BD7AE /* MobileCoreServices.framework */; };
 		C23F58F71CBB1544001BD7AE /* SharePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F58F61CBB1544001BD7AE /* SharePhotoViewController.m */; };
@@ -105,6 +106,8 @@
 		392AE1BD1CBD708D00A427FD /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		392AE1BE1CBD708D00A427FD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		392AE1BF1CBD708D00A427FD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3982502C1CBDD0E300E0553B /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		3982502D1CBDD0E300E0553B /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		C23F58EC1CBAF55B001BD7AE /* CameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraVC.h; sourceTree = "<group>"; };
 		C23F58ED1CBAF55B001BD7AE /* CameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraVC.m; sourceTree = "<group>"; };
 		C23F58F31CBAFCC3001BD7AE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -184,6 +187,7 @@
 		1A4A036F1CB9F0EB00D291EE /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				3982502B1CBDD0AC00E0553B /* Services */,
 				1A4A03811CB9F0EB00D291EE /* LaunchScreen.storyboard */,
 				1A4A03791CB9F0EB00D291EE /* Main.storyboard */,
 				392AE1351CBC1D6F00A427FD /* MainTabBarViewController.h */,
@@ -282,6 +286,15 @@
 				1A8B34641CBB174500A5FF0E /* PostDetailViewController.m */,
 			);
 			name = "Profile Section";
+			sourceTree = "<group>";
+		};
+		3982502B1CBDD0AC00E0553B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3982502C1CBDD0E300E0553B /* CoreDataManager.h */,
+				3982502D1CBDD0E300E0553B /* CoreDataManager.m */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,6 +438,7 @@
 			files = (
 				392AE1C31CBD708D00A427FD /* Hashtag.m in Sources */,
 				1A8B34621CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m in Sources */,
+				3982502E1CBDD0E300E0553B /* CoreDataManager.m in Sources */,
 				C23F58F71CBB1544001BD7AE /* SharePhotoViewController.m in Sources */,
 				392AE1C01CBD708D00A427FD /* Picture+CoreDataProperties.m in Sources */,
 				392AE1C51CBD708D00A427FD /* Comment.m in Sources */,
