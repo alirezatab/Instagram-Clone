@@ -107,7 +107,6 @@
     p.time = [NSDate date];
     p.owner = user;
     [p addCommentsObject:c];
-    [p addLikedByObject:user];
 }
 -(void)coreLoadUsers {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));

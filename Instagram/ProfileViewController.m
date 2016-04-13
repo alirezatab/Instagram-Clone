@@ -17,11 +17,6 @@
 #import "AppDelegate.h"
 
 
-@protocol hasUsers
-@property NSArray *users;
-@end
-
-
 @interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -37,98 +32,108 @@
 {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     [super viewDidLoad];
-    
-    // collectionView
-    self.arrayOfPosts = [NSMutableArray new];
-    self.arrayOfPosts = [@[[UIImage imageNamed:@"Charmander"],
-                           [UIImage imageNamed:@"Bulbasaur"],
-                           [UIImage imageNamed:@"Evee"],
-                           [UIImage imageNamed:@"Arcanine"],
-                           [UIImage imageNamed:@"Nidoran"],
-                           [UIImage imageNamed:@"Vaporeon"],
-                           [UIImage imageNamed:@"Charmander"],
-                           [UIImage imageNamed:@"Bulbasaur"],
-                           [UIImage imageNamed:@"Evee"],
-                           [UIImage imageNamed:@"Arcanine"],
-                           [UIImage imageNamed:@"Nidoran"],
-                           [UIImage imageNamed:@"Vaporeon"],
-                           [UIImage imageNamed:@"Charmander"],
-                           [UIImage imageNamed:@"Bulbasaur"],
-                           [UIImage imageNamed:@"Evee"],
-                           [UIImage imageNamed:@"Arcanine"],
-                           [UIImage imageNamed:@"Nidoran"],
-                           [UIImage imageNamed:@"Vaporeon"],
-                           [UIImage imageNamed:@"Charmander"],
-                           [UIImage imageNamed:@"Bulbasaur"],
-                           [UIImage imageNamed:@"Evee"],
-                           [UIImage imageNamed:@"Arcanine"],
-                           [UIImage imageNamed:@"Nidoran"],
-                           [UIImage imageNamed:@"Vaporeon"],
-                           [UIImage imageNamed:@"Charmander"],
-                           [UIImage imageNamed:@"Bulbasaur"],
-                           [UIImage imageNamed:@"Evee"],
-                           [UIImage imageNamed:@"Arcanine"],
-                           [UIImage imageNamed:@"Nidoran"],
-                           [UIImage imageNamed:@"Vaporeon"],
-                           [UIImage imageNamed:@"Charmander"],
-                           [UIImage imageNamed:@"Bulbasaur"],
-                           [UIImage imageNamed:@"Evee"],
-                           [UIImage imageNamed:@"Arcanine"],
-                           [UIImage imageNamed:@"Nidoran"],
-                           [UIImage imageNamed:@"Vaporeon"]]mutableCopy];
-    self.profileImageView.image = [UIImage imageNamed:@"Bulbasaur"];
+
+    // layer
     CALayer *imageLayer = self.profileImageView.layer;
     [imageLayer setCornerRadius:47];
     [imageLayer setMasksToBounds:YES];
     
-
-
-    // tableView
+    // tableView Nib
     [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
-
+    
     // current user + feed
-    // TODO: set self.user in parentVC (MainTabBar)
+    // TODO: set self.user in parent VC (instead of below)
     self.user = [self getMyUser];
     self.userPics = [self.user.pictures allObjects];
+
+    // collectionView
+//    self.arrayOfPosts = [NSMutableArray new];
+//    self.arrayOfPosts = [@[[UIImage imageNamed:@"Charmander"],
+//                           [UIImage imageNamed:@"Bulbasaur"],
+//                           [UIImage imageNamed:@"Evee"],
+//                           [UIImage imageNamed:@"Arcanine"],
+//                           [UIImage imageNamed:@"Nidoran"],
+//                           [UIImage imageNamed:@"Vaporeon"],
+//                           [UIImage imageNamed:@"Charmander"],
+//                           [UIImage imageNamed:@"Bulbasaur"],
+//                           [UIImage imageNamed:@"Evee"],
+//                           [UIImage imageNamed:@"Arcanine"],
+//                           [UIImage imageNamed:@"Nidoran"],
+//                           [UIImage imageNamed:@"Vaporeon"],
+//                           [UIImage imageNamed:@"Charmander"],
+//                           [UIImage imageNamed:@"Bulbasaur"],
+//                           [UIImage imageNamed:@"Evee"],
+//                           [UIImage imageNamed:@"Arcanine"],
+//                           [UIImage imageNamed:@"Nidoran"],
+//                           [UIImage imageNamed:@"Vaporeon"],
+//                           [UIImage imageNamed:@"Charmander"],
+//                           [UIImage imageNamed:@"Bulbasaur"],
+//                           [UIImage imageNamed:@"Evee"],
+//                           [UIImage imageNamed:@"Arcanine"],
+//                           [UIImage imageNamed:@"Nidoran"],
+//                           [UIImage imageNamed:@"Vaporeon"],
+//                           [UIImage imageNamed:@"Charmander"],
+//                           [UIImage imageNamed:@"Bulbasaur"],
+//                           [UIImage imageNamed:@"Evee"],
+//                           [UIImage imageNamed:@"Arcanine"],
+//                           [UIImage imageNamed:@"Nidoran"],
+//                           [UIImage imageNamed:@"Vaporeon"],
+//                           [UIImage imageNamed:@"Charmander"],
+//                           [UIImage imageNamed:@"Bulbasaur"],
+//                           [UIImage imageNamed:@"Evee"],
+//                           [UIImage imageNamed:@"Arcanine"],
+//                           [UIImage imageNamed:@"Nidoran"],
+//                           [UIImage imageNamed:@"Vaporeon"]]mutableCopy];
+//    self.profileImageView.image = [UIImage imageNamed:@"Bulbasaur"];
+
 }
-
-
-
--(void)viewWillAppear:(BOOL)animated
-{
+-(void)viewWillAppear:(BOOL)animated {
     [self toggleHiddenStateOfCollectionAndTableView];
 }
 
-- (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender
-{
+
+
+#pragma mark - Navigation
+- (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {
+    // TODO: detect which segment was actually pressed
     [self toggleHiddenStateOfCollectionAndTableView];
 }
-
-
-#pragma mark - Collection View Methods
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+//  toggle() - Hides the table view or collection view depending on which segmented control was selected
+-(void)toggleHiddenStateOfCollectionAndTableView
 {
-    return self.arrayOfPosts.count;
+    if (self.profileSegmentedControl.selectedSegmentIndex == 0)
+    {
+        self.tableView.hidden = YES;
+        self.collectionView.hidden = NO;
+    }
+    else if (self.profileSegmentedControl.selectedSegmentIndex == 1)
+    {
+        self.tableView.hidden = NO;
+        self.collectionView.hidden = YES;
+    }
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+
+
+#pragma mark - CollectionView
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.userPics.count;
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ProfileCollectionViewCell *collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell" forIndexPath:indexPath];
-    
+
+    Picture *p = self.userPics[indexPath.row];
+    collectionCell.imageView.image = [UIImage imageWithData:p.image];
     collectionView.backgroundColor = [UIColor blackColor];
-    collectionCell.imageView.image = self.arrayOfPosts[indexPath.row];
-    
+
     return collectionCell;
 }
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout: (UICollectionView *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
+-(CGSize)collectionView:(UICollectionView *)collectionView layout: (UICollectionView *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     return CGSizeMake(self.collectionView.frame.size.width / 5, self.collectionView.frame.size.height / 5);
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
 }
 
@@ -155,7 +160,9 @@
     [cell.topLeft_usernameButton setTitle:u.username forState:UIControlStateNormal];
     [cell.topLeft_locationButton setTitle:@"somewhere in the desert, New Mexico" forState:UIControlStateNormal]; // TODO
     [cell.bottomLeft_numLikesButton setTitle:[NSString stringWithFormat:@"♥︎ %i likes", p.likedBy.count] forState:UIControlStateNormal];
-    cell.bottomLeft_numLikesButton.hidden = (p.likedBy.count == 0);
+
+    // hide if zero likes
+    //cell.bottomLeft_numLikesButton.hidden = (p.likedBy.count == 0);
 
     // comments
     // TODO: multiple comment lines
@@ -188,29 +195,15 @@
 
 
 #pragma mark - Custom Functions
-
-//  Hides the table view or collection view depending on which segmented control was selected
--(void)toggleHiddenStateOfCollectionAndTableView
-{
-    if (self.profileSegmentedControl.selectedSegmentIndex == 0)
-    {
-        self.tableView.hidden = YES;
-        self.collectionView.hidden = NO;
-    }
-    else if (self.profileSegmentedControl.selectedSegmentIndex == 1)
-    {
-        self.tableView.hidden = NO;
-        self.collectionView.hidden = YES;
-    }
-}
-
 // getMyUser() - returns User object for current user
 -(User *)getMyUser {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
+
     if (! self.moc) {
         AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
         self.moc = appDelegate.managedObjectContext;
     }
+
     NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"User"];
     NSError *error;
     NSArray *allUsers = [self.moc executeFetchRequest:req error:&error];
