@@ -11,6 +11,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tZl-30-ur4" customClass="MainTabBarViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="e4G-Qf-jeb">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
                     <connections>
