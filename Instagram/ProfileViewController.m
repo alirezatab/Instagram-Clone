@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *profileSegmentedControl;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *profileNameLabel;
 @end
 
 
@@ -43,9 +44,12 @@
 -(void)viewWillAppear:(BOOL)animated {
     [self selectCollectionOrTableView];
     
+    
     // current user
     self.user = [self getMyUser];
-
+    self.profileImageView.image = [UIImage imageNamed:@"profile2"];
+    self.profileNameLabel.text = self.user.fullname;
+    
     // current feed
     self.arrayOfPosts = [self.user.pictures allObjects];
     [self.tableView reloadData];
