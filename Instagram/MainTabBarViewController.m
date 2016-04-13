@@ -11,6 +11,9 @@
 
 
 @interface MainTabBarViewController ()
+
+@property NSArray *arrayOfTabBarIcons;
+
 @end
 
 
@@ -19,6 +22,12 @@
     [super viewDidLoad];
     NSLog(@"Welcome to Ourstagram");
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
+    
+    _arrayOfTabBarIcons = @[[UIImage imageNamed:@"Home-40"],
+                            [UIImage imageNamed:@"Search-40"],
+                            [UIImage imageNamed:@"Compact Camera-40"],
+                            [UIImage imageNamed:@"Wedding Photo-40"],
+                            [UIImage imageNamed:@"User-40"]];
 
 
     // start in Profile tab
@@ -32,7 +41,9 @@
     
 //    Sets the highlight image color to white
     [[UITabBar appearance]setTintColor:[UIColor blackColor]];
-//    [[UITabBar appearance]setAlpha:0.25];
+    [[UITabBar appearance]setAlpha:0.25];
+    
+    
     
 }
 
@@ -41,6 +52,9 @@
 {
     UITabBarItem *barItem = [self.tabBar.items objectAtIndex:index];
     barItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    barItem.image = _arrayOfTabBarIcons[index];
+    barItem.title = nil;
+    
     
 }
 
