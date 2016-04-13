@@ -65,6 +65,7 @@
     UITabBarItem *barItem = [self.tabBar.items objectAtIndex:index];
     barItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     barItem.image = self.arrayOfTabBarIcons[index];
+    barItem.title = nil;
 }
 
 #pragma mark - Navigation
