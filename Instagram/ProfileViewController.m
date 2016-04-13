@@ -50,7 +50,7 @@
     self.arrayOfPosts = [self.user.pictures allObjects];
     self.arrayOfPosts = [self.arrayOfPosts sortedArrayUsingComparator:
                          ^NSComparisonResult(Picture *p1, Picture *p2) {
-                             return [p1.time compare:p2.time];
+                             return [p2.time compare:p1.time];
                          }];
     [self.tableView reloadData];
 }
