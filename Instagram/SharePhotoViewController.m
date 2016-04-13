@@ -29,7 +29,12 @@
     self.okButton.hidden = YES;
     self.okButton.enabled = NO;
     
-    //self.tabBarController.tabBar.hidden = YES;
+    self.tabBarController.tabBar.hidden = YES;
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
@@ -67,7 +72,7 @@
     // user: getMyUser()
     // image: self.shareImage
     // comment: self.userCommentTextView.text
-
+    
     [CoreDataManager addPicture:self.shareImage withComment:self.userCommentTextView.text fromUser:[self getMyUser]];
     [CoreDataManager save];
 }
@@ -77,5 +82,7 @@
 -(User *)getMyUser {
     return [CoreDataManager getUserZero];
 }
+
+
 
 @end

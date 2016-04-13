@@ -28,7 +28,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="FMC-5H-vZZ" customClass="ProfileCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="0.0" y="64" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -57,15 +57,15 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="qiA-eL-ttf"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="352" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iyo-cX-GLK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="538" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iyo-cX-GLK">
                                 <rect key="frame" x="0.0" y="243" width="600" height="308"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="352" id="bRG-Qb-gF7" customClass="FeedTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="352"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="538" id="bRG-Qb-gF7" customClass="FeedTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="538"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bRG-Qb-gF7" id="CTZ-5z-RWh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="351.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="537.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -207,6 +207,7 @@
                     <connections>
                         <outlet property="collectionView" destination="dAF-oe-pIz" id="y7e-Bx-nBj"/>
                         <outlet property="profileImageView" destination="cE8-Mx-hJx" id="OLA-nG-Wne"/>
+                        <outlet property="profileNameLabel" destination="IdB-UE-OxQ" id="KNo-ea-eqb"/>
                         <outlet property="profileSegmentedControl" destination="TqB-8F-v3u" id="Odu-Hk-OyI"/>
                         <outlet property="tableView" destination="Iyo-cX-GLK" id="Veb-RK-Jxb"/>
                     </connections>
