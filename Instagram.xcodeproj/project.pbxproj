@@ -22,6 +22,7 @@
 		1A8B345F1CBA0FD500A5FF0E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B345E1CBA0FD500A5FF0E /* ProfileViewController.m */; };
 		1A8B34621CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B34611CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m */; };
 		1A8B34651CBB174500A5FF0E /* PostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B34641CBB174500A5FF0E /* PostDetailViewController.m */; };
+		1A8B34A21CBDFA5800A5FF0E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B34A11CBDFA5800A5FF0E /* SearchViewController.m */; };
 		392AE1331CBB369000A427FD /* FeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 392AE1311CBB369000A427FD /* FeedTableViewCell.m */; };
 		392AE1341CBB369000A427FD /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392AE1321CBB369000A427FD /* FeedTableViewCell.xib */; };
 		392AE1371CBC1D6F00A427FD /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392AE1361CBC1D6F00A427FD /* MainTabBarViewController.m */; };
@@ -85,6 +86,8 @@
 		1A8B34611CBA1A3D00A5FF0E /* ProfileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCollectionViewCell.m; sourceTree = "<group>"; };
 		1A8B34631CBB174500A5FF0E /* PostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDetailViewController.h; sourceTree = "<group>"; };
 		1A8B34641CBB174500A5FF0E /* PostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDetailViewController.m; sourceTree = "<group>"; };
+		1A8B34A01CBDFA5800A5FF0E /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		1A8B34A11CBDFA5800A5FF0E /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		392AE1301CBB369000A427FD /* FeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell.h; sourceTree = "<group>"; };
 		392AE1311CBB369000A427FD /* FeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell.m; sourceTree = "<group>"; };
 		392AE1321CBB369000A427FD /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
@@ -245,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				1A4A03AD1CB9F28100D291EE /* Search.storyboard */,
+				1A8B34A01CBDFA5800A5FF0E /* SearchViewController.h */,
+				1A8B34A11CBDFA5800A5FF0E /* SearchViewController.m */,
 			);
 			name = "Search Section";
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 				1A4A03751CB9F0EB00D291EE /* AppDelegate.m in Sources */,
 				1A8B34651CBB174500A5FF0E /* PostDetailViewController.m in Sources */,
 				392AE1331CBB369000A427FD /* FeedTableViewCell.m in Sources */,
+				1A8B34A21CBDFA5800A5FF0E /* SearchViewController.m in Sources */,
 				392AE1C61CBD708D00A427FD /* User+CoreDataProperties.m in Sources */,
 				392AE1371CBC1D6F00A427FD /* MainTabBarViewController.m in Sources */,
 				392AE1C21CBD708D00A427FD /* Hashtag+CoreDataProperties.m in Sources */,

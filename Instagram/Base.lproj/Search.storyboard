@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="eAR-SB-RDd">
             <objects>
-                <viewController id="mPE-y2-Ubs" sceneMemberID="viewController">
+                <viewController id="mPE-y2-Ubs" customClass="SearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xxP-35-TVQ"/>
                         <viewControllerLayoutGuide type="bottom" id="0vk-PA-tOT"/>
