@@ -15,6 +15,7 @@
 #import "Picture.h"
 #import "Comment.h"
 #import "AppDelegate.h"
+#import "CoreDataManager.h"
 
 
 @interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
@@ -22,8 +23,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *profileSegmentedControl;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property NSArray *userPics;
-@property NSManagedObjectContext *moc;
 @end
 
 
@@ -40,66 +39,26 @@
     
     // tableView Nib
     [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
-    
-    // current user + feed
-    // TODO: set self.user in parent VC (instead of below)
-    self.user = [self getMyUser];
-    self.userPics = [self.user.pictures allObjects];
-
-    // collectionView
-//    self.arrayOfPosts = [NSMutableArray new];
-//    self.arrayOfPosts = [@[[UIImage imageNamed:@"Charmander"],
-//                           [UIImage imageNamed:@"Bulbasaur"],
-//                           [UIImage imageNamed:@"Evee"],
-//                           [UIImage imageNamed:@"Arcanine"],
-//                           [UIImage imageNamed:@"Nidoran"],
-//                           [UIImage imageNamed:@"Vaporeon"],
-//                           [UIImage imageNamed:@"Charmander"],
-//                           [UIImage imageNamed:@"Bulbasaur"],
-//                           [UIImage imageNamed:@"Evee"],
-//                           [UIImage imageNamed:@"Arcanine"],
-//                           [UIImage imageNamed:@"Nidoran"],
-//                           [UIImage imageNamed:@"Vaporeon"],
-//                           [UIImage imageNamed:@"Charmander"],
-//                           [UIImage imageNamed:@"Bulbasaur"],
-//                           [UIImage imageNamed:@"Evee"],
-//                           [UIImage imageNamed:@"Arcanine"],
-//                           [UIImage imageNamed:@"Nidoran"],
-//                           [UIImage imageNamed:@"Vaporeon"],
-//                           [UIImage imageNamed:@"Charmander"],
-//                           [UIImage imageNamed:@"Bulbasaur"],
-//                           [UIImage imageNamed:@"Evee"],
-//                           [UIImage imageNamed:@"Arcanine"],
-//                           [UIImage imageNamed:@"Nidoran"],
-//                           [UIImage imageNamed:@"Vaporeon"],
-//                           [UIImage imageNamed:@"Charmander"],
-//                           [UIImage imageNamed:@"Bulbasaur"],
-//                           [UIImage imageNamed:@"Evee"],
-//                           [UIImage imageNamed:@"Arcanine"],
-//                           [UIImage imageNamed:@"Nidoran"],
-//                           [UIImage imageNamed:@"Vaporeon"],
-//                           [UIImage imageNamed:@"Charmander"],
-//                           [UIImage imageNamed:@"Bulbasaur"],
-//                           [UIImage imageNamed:@"Evee"],
-//                           [UIImage imageNamed:@"Arcanine"],
-//                           [UIImage imageNamed:@"Nidoran"],
-//                           [UIImage imageNamed:@"Vaporeon"]]mutableCopy];
-//    self.profileImageView.image = [UIImage imageNamed:@"Bulbasaur"];
-
 }
 -(void)viewWillAppear:(BOOL)animated {
-    [self toggleHiddenStateOfCollectionAndTableView];
+    [self selectCollectionOrTableView];
+    
+    // current user
+    self.user = [self getMyUser];
+
+    // current feed
+    self.arrayOfPosts = [self.user.pictures allObjects];
+    [self.tableView reloadData];
 }
 
 
 
 #pragma mark - Navigation
 - (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {
-    // TODO: detect which segment was actually pressed
-    [self toggleHiddenStateOfCollectionAndTableView];
+    [self selectCollectionOrTableView];
 }
 //  toggle() - Hides the table view or collection view depending on which segmented control was selected
--(void)toggleHiddenStateOfCollectionAndTableView
+-(void)selectCollectionOrTableView
 {
     if (self.profileSegmentedControl.selectedSegmentIndex == 0)
     {
@@ -117,12 +76,12 @@
 
 #pragma mark - CollectionView
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.userPics.count;
+    return self.arrayOfPosts.count;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ProfileCollectionViewCell *collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell" forIndexPath:indexPath];
 
-    Picture *p = self.userPics[indexPath.row];
+    Picture *p = self.arrayOfPosts[indexPath.row];
     collectionCell.imageView.image = [UIImage imageWithData:p.image];
     collectionView.backgroundColor = [UIColor blackColor];
 
@@ -141,39 +100,35 @@
 
 #pragma mark - TableView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 1;
-        return self.user.pictures.count;
+    return self.arrayOfPosts.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feedCell" forIndexPath:indexPath];
-    
-    // TODO: hook up buttons (username, location, heart, comment, numLikes, commentUser)
-    
-    Picture *p = self.userPics[indexPath.row];
+    Picture *p = self.arrayOfPosts[indexPath.row];
     User *u = p.owner;
 
-    // image
-    cell.middle_mainImageView.image = [UIImage imageWithData:p.image];
-
-    // metadata
+    // post
     cell.topLeft_profileImageView.image = [UIImage imageNamed:@"profile2"]; // TODO
     [cell.topLeft_usernameButton setTitle:u.username forState:UIControlStateNormal];
-    [cell.topLeft_locationButton setTitle:@"somewhere in the desert, New Mexico" forState:UIControlStateNormal]; // TODO
+    [cell.topLeft_locationButton setTitle:p.location forState:UIControlStateNormal];
+    cell.middle_mainImageView.image = [UIImage imageWithData:p.image];
     [cell.bottomLeft_numLikesButton setTitle:[NSString stringWithFormat:@"♥︎ %i likes", p.likedBy.count] forState:UIControlStateNormal];
 
-    // hide if zero likes
-    //cell.bottomLeft_numLikesButton.hidden = (p.likedBy.count == 0);
-
     // comments
-    // TODO: multiple comment lines
     NSArray *comments = [p.comments allObjects];
     Comment *c = comments[0];
     [cell.bottomLeft_commentUserButton setTitle:c.user.username forState:UIControlStateNormal];
     cell.bottomLeft_commentTextLabel.text = c.text;
     cell.bottomLeft_commentDateLabel.text = @"today";
 
+    // TODO: multiple comment lines
+    // TODO: hook up buttons (username, location, heart, comment, numLikes, commentUser)
+
     return cell;
 }
+
+
+#pragma mark - TableView - Sections
 // tableView sections
 //-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //    return 5;
@@ -197,23 +152,7 @@
 #pragma mark - Custom Functions
 // getMyUser() - returns User object for current user
 -(User *)getMyUser {
-    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
-
-    if (! self.moc) {
-        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-        self.moc = appDelegate.managedObjectContext;
-    }
-
-    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    NSError *error;
-    NSArray *allUsers = [self.moc executeFetchRequest:req error:&error];
-    if (error) {
-        NSLog(@"core load error: %@", error);
-        return nil;
-    }
-    NSLog(@"core load ok: %lu items", allUsers.count);
-
-    return allUsers[0];
+    return [CoreDataManager getUserZero];
 }
 
 

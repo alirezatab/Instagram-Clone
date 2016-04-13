@@ -7,14 +7,13 @@
 //
 
 #import "SharePhotoViewController.h"
-#import "AppDelegate.h"
 #import "User.h"
 #import "Comment.h"
 #import "Picture.h"
+#import "CoreDataManager.h"
 
 
 @interface SharePhotoViewController ()
-@property NSManagedObjectContext *moc;
 @end
 
 
@@ -31,10 +30,6 @@
     self.okButton.enabled = NO;
     
     self.tabBarController.tabBar.hidden = YES;
-    
-    // CoreData
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    self.moc = appDelegate.managedObjectContext;
 }
 
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
@@ -68,61 +63,19 @@
 
 - (IBAction)onShareButtonPressed:(UIButton *)sender {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
-    NSLog(@"Share Button Pressed");
 
     // user: getMyUser()
     // image: self.shareImage
     // comment: self.userCommentTextView.text
-    [self coreAddPicture:self.shareImage withComment:self.userCommentTextView.text fromUser:[self getMyUser]];
-    [self coreSave];
-}
 
--(void)coreAddPicture:(UIImage *)pictureImg withComment:(NSString *)commentStr fromUser:(User *)user {
-    Comment *c = [NSEntityDescription insertNewObjectForEntityForName:@"Comment" inManagedObjectContext:self.moc];
-    c.text = commentStr;
-    c.time = [NSDate date];
-    c.user = user;
-    
-    Picture *p = [NSEntityDescription insertNewObjectForEntityForName:@"Picture" inManagedObjectContext:self.moc];
-    p.image = UIImagePNGRepresentation(pictureImg);
-    p.location = @"somewhere in the desert, New Mexico";
-    p.time = [NSDate date];
-    p.owner = user;
-    [p addCommentsObject:c];
-    //[p addLikedByObject:user];
+    [CoreDataManager addPicture:self.shareImage withComment:self.userCommentTextView.text fromUser:[self getMyUser]];
+    [CoreDataManager save];
 }
 
 // getMyUser() - returns User object for current user
+// TODO: this should come from parent VC instead (?)
 -(User *)getMyUser {
-    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
-    
-    if (! self.moc) {
-        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-        self.moc = appDelegate.managedObjectContext;
-    }
-
-    // fetch user0
-    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    NSError *error;
-    NSArray *allUsers = [self.moc executeFetchRequest:req error:&error];
-    if (error) {
-        NSLog(@"core load error: %@", error);
-        return nil;
-    }
-    NSLog(@"core load ok: %lu items", allUsers.count);
-    
-    return allUsers[0];
+    return [CoreDataManager getUserZero];
 }
--(void)coreSave {
-    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
-    // save to Core
-    NSError *error;
-    if ([self.moc save:&error]) {
-        NSLog(@"core save ok");
-    } else {
-        NSLog(@"core save error: %@", error);
-    }
-}
-
 
 @end
