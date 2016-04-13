@@ -78,7 +78,7 @@
                            [UIImage imageNamed:@"Vaporeon"]]mutableCopy];
     self.profileImageView.image = [UIImage imageNamed:@"Bulbasaur"];
     CALayer *imageLayer = self.profileImageView.layer;
-    [imageLayer setCornerRadius:47];
+    [imageLayer setCornerRadius:30];
     [imageLayer setMasksToBounds:YES];
     
 

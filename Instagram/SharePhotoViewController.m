@@ -25,7 +25,7 @@
     self.okButton.hidden = YES;
     self.okButton.enabled = NO;
     
-    self.tabBarController.tabBar.hidden = YES;
+    //self.tabBarController.tabBar.hidden = YES;
 }
 
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
