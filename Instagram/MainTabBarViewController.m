@@ -50,6 +50,7 @@
     // tab bar icons
     for (int i = 0; i < 5; i++) {
         [self centerTabBarIcons:i];
+        
     }
     
     // sets the highlight image color to white
@@ -63,6 +64,7 @@
 {
     UITabBarItem *barItem = [self.tabBar.items objectAtIndex:index];
     barItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    barItem.image = self.arrayOfTabBarIcons[index];
 }
 
 #pragma mark - Navigation
