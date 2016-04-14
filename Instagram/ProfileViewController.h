@@ -12,4 +12,8 @@
 @interface ProfileViewController : UIViewController
 @property User *user;
 @property NSArray *arrayOfPosts;
+
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *profileNameLabel;
+
 @end

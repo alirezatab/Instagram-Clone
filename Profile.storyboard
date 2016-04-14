@@ -66,7 +66,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="538"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bRG-Qb-gF7" id="CTZ-5z-RWh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="537.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="537"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -105,7 +105,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cg8-Ak-kCA">
-                                        <rect key="frame" x="197" y="0.0" width="30" height="32"/>
+                                        <rect key="frame" x="198" y="0.0" width="30" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="84">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -237,7 +237,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="446"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tPd-Tb-QDy" id="jTp-5i-Oyd">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="445.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="445"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -263,6 +263,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="detailTableView" destination="kgv-t7-RDN" id="QNH-H2-WXG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31d-dF-6zV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

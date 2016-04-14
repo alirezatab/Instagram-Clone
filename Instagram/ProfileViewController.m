@@ -17,7 +17,7 @@
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
 #import "CustomImageFlowLayout.h"
-
+#import <AVFoundation/AVFoundation.h>
 
 @interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -25,8 +25,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *profileSegmentedControl;
-@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (weak, nonatomic) IBOutlet UILabel *profileNameLabel;
+
+@property AVAudioPlayer *audioPlayer;
+
 @end
 
 
@@ -46,6 +47,9 @@
     
     // tableView Nib
     [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
+
+    
+    
 }
 -(void)viewWillAppear:(BOOL)animated {
     [self selectCollectionOrTableView];
@@ -71,6 +75,7 @@
 - (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {
     [self selectCollectionOrTableView];
 }
+
 //  toggle() - Hides the table view or collection view depending on which segmented control was selected
 -(void)selectCollectionOrTableView
 {
@@ -92,6 +97,7 @@
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.arrayOfPosts.count;
 }
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ProfileCollectionViewCell *collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell" forIndexPath:indexPath];
 
@@ -108,6 +114,9 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
+    
+    
+    
 }
 
 
@@ -116,6 +125,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfPosts.count;
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feedCell" forIndexPath:indexPath];
     Picture *p = self.arrayOfPosts[indexPath.row];
