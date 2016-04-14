@@ -79,7 +79,7 @@
                                     <constraint firstAttribute="width" constant="24" id="AA2-GS-qkf"/>
                                     <constraint firstAttribute="height" constant="24" id="OQw-vB-sYW"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="button-favorite"/>
+                                <state key="normal" title="Button" image="button-heart-off"/>
                                 <connections>
                                     <action selector="onHeartButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="RKe-VR-bvp"/>
                                 </connections>
@@ -263,7 +263,7 @@
     </objects>
     <resources>
         <image name="button-comment" width="40" height="40"/>
-        <image name="button-favorite" width="40" height="40"/>
+        <image name="button-heart-off" width="40" height="40"/>
         <image name="profile2" width="194" height="188"/>
     </resources>
 </document>
