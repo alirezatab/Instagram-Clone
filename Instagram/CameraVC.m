@@ -43,7 +43,7 @@
     [super viewDidLoad];
     
     self.collectionView.collectionViewLayout = [[CustomImageFlowLayout alloc] init];
-    self.collectionView.backgroundColor = [UIColor blackColor];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     
     // Fetch all assets, sorted by date created.
     PHFetchOptions *options = [[PHFetchOptions alloc] init];
@@ -76,35 +76,23 @@
     }
 }
 
-// set up camera
-//-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-//    if (self.tabBarController.tabBar.selectedItem.tag == 2) {
-//        NSLog(@"[%@ %@]", self.class, NSStringFromSelector((_cmd)));
-//        
-//        //[self presentViewController:self. ViewController.modalTransitionStyle animated:YES completion:nil];
-//        //[self turnCameraOn];
-//    }
-//}
-
 -(void)turnCameraOn {
     UIImagePickerController *picker = [[UIImagePickerController alloc]init];
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     picker.cameraCaptureMode = UIImagePickerControllerCameraDeviceRear;
-    //show navagation bar so we can put an x to cancel
+    //  show navagation bar so we can put an x to cancel
     picker.navigationBarHidden = NO;
-    //have a toolbar show up in the below so we can add additional buttons
+    //  have a toolbar show up in the below so we can add additional buttons
     picker.toolbarHidden = YES;
-    //picker.wantsFullScreenLayout = YES;
+    //  picker.wantsFullScreenLayout = YES;
     picker.delegate = self;
-    //crop boz arund the image after its taken
+    //  crop boz arund the image after its taken
     picker.allowsEditing = YES;
-    // make all the camera controls appear or disappear
+    //  make all the camera controls appear or disappear
     picker.showsCameraControls = YES;
-    
-    //overlay on top of camera lens view
-    //    UIImageView *cameraOverlayView = [UIImageView alloc]initWithImage:[UIImage imageNamed:@"cameraOverlay.png"];
-    //    cameraOverlayView.alpha = 0.0f;
-    
+    //  overlay on top of camera lens view
+    //  UIImageView *cameraOverlayView = [UIImageView alloc]initWithImage:[UIImage imageNamed:@"cameraOverlay.png"];
+    //  cameraOverlayView.alpha = 0.0f;
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
@@ -113,12 +101,13 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector((_cmd)));
-    
+
     NSString *mediaType = info[UIImagePickerControllerMediaType];
     //retrieve the actual UIImage when the picture is captures
-    self.snappedCameraImage = info[UIImagePickerControllerOriginalImage];
+    self.snappedCameraImageFlipped = info[UIImagePickerControllerOriginalImage];
     //flips the picture to have right oriantation
-    //self.snappedCameraImageFlipped = [UIImage imageWithCGImage:self.snappedCameraImage.CGImage scale:self.snappedCameraImage.scale orientation:UIImageOrientationLeft];
+    
+    self.snappedCameraImage = [self squareImageWithImage:self.snappedCameraImageFlipped scaledToSize:CGSizeMake(300, 1)];
     
     NSLog(@"Media Type:   \"%@\"", mediaType);
     //NSLog(@"kUTTypeImage: \"%@\"", (NSString *)kUTTypeImage);
@@ -155,6 +144,48 @@
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector((_cmd)));
     self.tabBarController.tabBar.hidden = NO;
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+#pragma fixing orientation of photo and scale
+- (UIImage *)squareImageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    double ratio;
+    double delta;
+    CGPoint offset;
+    
+    //make a new square size, that is the resized imaged width
+    CGSize sz = CGSizeMake(newSize.width, newSize.width);
+    
+    //figure out if the picture is landscape or portrait, then
+    //calculate scale factor and offset
+    if (image.size.width > image.size.height) {
+        ratio = newSize.width / image.size.width;
+        delta = (ratio*image.size.width - ratio*image.size.height);
+        offset = CGPointMake(delta/2, 0);
+    } else {
+        ratio = newSize.width / image.size.height;
+        delta = (ratio*image.size.height - ratio*image.size.width);
+        offset = CGPointMake(0, delta/2);
+    }
+    
+    //make the final clipping rect based on the calculated values
+    CGRect clipRect = CGRectMake(-offset.x, -offset.y,
+                                 (ratio * image.size.width) + delta,
+                                 (ratio * image.size.height) + delta);
+    
+    
+    //start a new context, with scale factor 0.0 so retina displays get
+    //high quality image
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+        UIGraphicsBeginImageContextWithOptions(sz, YES, 0.0);
+    } else {
+        UIGraphicsBeginImageContext(sz);
+    }
+    UIRectClip(clipRect);
+    [image drawInRect:clipRect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 #pragma mark - Library

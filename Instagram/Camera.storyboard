@@ -76,7 +76,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.99700447841944773" blue="0.9549215061561126" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="c7g-p1-CUz" firstAttribute="top" secondItem="NgQ-vZ-RK7" secondAttribute="bottom" constant="-6" id="8s0-29-BJA"/>
                             <constraint firstItem="c7g-p1-CUz" firstAttribute="leading" secondItem="WYS-6i-s9C" secondAttribute="leadingMargin" constant="-20" id="Sxr-CC-L4D"/>
@@ -134,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73G-h0-zn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1633" y="1269"/>
+            <point key="canvasLocation" x="1510" y="1269"/>
         </scene>
         <!--Title-->
         <scene sceneID="rCl-mk-WZR">
@@ -254,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbo-TW-Gip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2405" y="1269"/>
+            <point key="canvasLocation" x="2203" y="1269"/>
         </scene>
         <!--Camera-->
         <scene sceneID="qWk-hL-q32">

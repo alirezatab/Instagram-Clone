@@ -16,6 +16,7 @@
             withComment:(NSString *)commentStr
                fromUser:(User *)user;
 + (void)save;
++ (NSArray *)fetchComments;
 + (NSArray *)fetchUsers;
 + (User *)getUserZero;
 @end

@@ -34,26 +34,34 @@
 @implementation ProfileViewController
 - (void)viewDidLoad
 {
-    self.collectionView.collectionViewLayout = [[CustomImageFlowLayout alloc] init];
-    self.collectionView.backgroundColor = [UIColor blackColor];
-    
-    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     [super viewDidLoad];
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
 
     // layer
     CALayer *imageLayer = self.profileImageView.layer;
     [imageLayer setCornerRadius:30];
     [imageLayer setMasksToBounds:YES];
     
+<<<<<<< HEAD
     // tableView Nib
 //    [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
     
     
     
+=======
+    // collectionView
+    self.collectionView.collectionViewLayout = [[CustomImageFlowLayout alloc] init];
+    self.collectionView.backgroundColor = [UIColor blackColor];
+    
+    // tableView
+    [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
+>>>>>>> dev2
 }
 -(void)viewWillAppear:(BOOL)animated {
+
+    // segment - default to tableview
+    self.profileSegmentedControl.selectedSegmentIndex = 1;
     [self selectCollectionOrTableView];
-    
     
     // current user
     self.user = [self getMyUser];
@@ -61,15 +69,25 @@
     self.profileNameLabel.text = self.user.fullname;
     
     // current feed
-    self.arrayOfPosts = [self.user.pictures allObjects];
-    self.arrayOfPosts = [self.arrayOfPosts sortedArrayUsingComparator:
+    self.arrayOfPosts = [self sortPicturesByDate:[self.user.pictures allObjects]];
+    [self.tableView reloadData];
+    
+    // scroll to specific post
+    if (self.scrollToPost) {
+        int indexOfPost = [self.arrayOfPosts indexOfObject:self.scrollToPost];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexOfPost inSection:0];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+
+        self.scrollToPost = nil;
+    }
+}
+
+-(NSArray *)sortPicturesByDate:(NSArray *)oldArray {
+    return [oldArray sortedArrayUsingComparator:
                          ^NSComparisonResult(Picture *p1, Picture *p2) {
                              return [p2.time compare:p1.time];
                          }];
-    [self.tableView reloadData];
 }
-
-
 
 #pragma mark - Navigation
 - (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {
@@ -147,42 +165,25 @@
     Comment *c = comments[0];
     [cell.bottomLeft_commentUserButton setTitle:c.user.username forState:UIControlStateNormal];
     cell.bottomLeft_commentTextLabel.text = c.text;
-    cell.bottomLeft_commentDateLabel.text = [self commentTime:c];
+    cell.bottomLeft_commentDateLabel.text = c.agoString;
 
+    // delegate
+    cell.likeDelegate = self;
+    
     // TODO: multiple comment lines
     // TODO: hook up buttons (username, location, heart, comment, numLikes, commentUser)
 
     return cell;
 }
 
--(NSString *)secsAgoString:(int)nSecs div:(int)div unit:(NSString *)unit plural:(BOOL)plural {
-    int x = (int)(nSecs/div);
-    NSString *unitStr = unit;
-    if (plural && x != 1) { unitStr = [NSString stringWithFormat:@"%@s", unitStr]; }
-    return [NSString stringWithFormat:@"%i %@ ago", x, unitStr];
+
+#pragma mark - TableView - LikeButton
+-(void)likeButtonPressed:(id)sender {
+    FeedTableViewCell *cell = sender;
+    int i = [self.tableView indexPathForCell:cell].row;
+    NSLog(@"[%@ %@]: %i", self.class, NSStringFromSelector(_cmd), i);
 }
--(NSString *)commentTime:(Comment *)c {
-    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
-    NSDate *time = c.time;
-    NSDate *now = [NSDate date];
-    NSTimeInterval n = [now timeIntervalSinceDate:time];
-    NSLog(@"%.0lf sec ago", n);
-    
-    // 604,800 sec/wk
-    // 86,400 sec/day
-    // 3600 sec/hr
-    // 60 sec/min
-    if (n >= 604800) {
-        return [self secsAgoString:n div:604800 unit:@"wk" plural:YES];
-    } else if (n >= 86400) {
-        return [self secsAgoString:n div:86400 unit:@"day" plural:YES];
-    } else if (n >= 3600) {
-        return [self secsAgoString:n div:3600 unit:@"hr" plural:YES];
-    } else if (n >= 60) {
-        return [self secsAgoString:n div:60 unit:@"min" plural:NO];
-    }
-    return [self secsAgoString:n div:1 unit:@"sec" plural:NO];
-}
+
 
 #pragma mark - TableView - Sections
 // tableView sections
@@ -194,12 +195,8 @@
 //        return @"Section 1";
 //    } else if (section == 1) {
 //        return @"Section 2";
-//    } else if (section == 2) {
-//        return @"Section 3";
-//    } else if (section == 3) {
-//        return @"Section 4";
 //    } else {
-//        return @"Section 5";
+//        return @"Section 3";
 //    }
 //}
 

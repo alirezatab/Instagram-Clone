@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol likeButtonPressed
+-(void)likeButtonPressed:(id)sender;
+@end
+
 @interface FeedTableViewCell : UITableViewCell
 // top
 @property (weak, nonatomic) IBOutlet UIImageView *topLeft_profileImageView;
@@ -22,5 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *bottomLeft_commentUserButton;
 @property (weak, nonatomic) IBOutlet UILabel *bottomLeft_commentTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bottomLeft_commentDateLabel;
-
+// delegates
+@property id<likeButtonPressed> likeDelegate;
 @end
