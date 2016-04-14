@@ -33,23 +33,26 @@
 @implementation ProfileViewController
 - (void)viewDidLoad
 {
-    self.collectionView.collectionViewLayout = [[CustomImageFlowLayout alloc] init];
-    self.collectionView.backgroundColor = [UIColor blackColor];
-    
-    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     [super viewDidLoad];
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
 
     // layer
     CALayer *imageLayer = self.profileImageView.layer;
     [imageLayer setCornerRadius:30];
     [imageLayer setMasksToBounds:YES];
     
-    // tableView Nib
+    // collectionView
+    self.collectionView.collectionViewLayout = [[CustomImageFlowLayout alloc] init];
+    self.collectionView.backgroundColor = [UIColor blackColor];
+    
+    // tableView
     [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
 }
 -(void)viewWillAppear:(BOOL)animated {
+
+    // segment - default to tableview
+    self.profileSegmentedControl.selectedSegmentIndex = 1;
     [self selectCollectionOrTableView];
-    
     
     // current user
     self.user = [self getMyUser];
@@ -57,15 +60,25 @@
     self.profileNameLabel.text = self.user.fullname;
     
     // current feed
-    self.arrayOfPosts = [self.user.pictures allObjects];
-    self.arrayOfPosts = [self.arrayOfPosts sortedArrayUsingComparator:
+    self.arrayOfPosts = [self sortPicturesByDate:[self.user.pictures allObjects]];
+    [self.tableView reloadData];
+    
+    // scroll to specific post
+    if (self.scrollToPost) {
+        int indexOfPost = [self.arrayOfPosts indexOfObject:self.scrollToPost];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexOfPost inSection:0];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+
+        self.scrollToPost = nil;
+    }
+}
+
+-(NSArray *)sortPicturesByDate:(NSArray *)oldArray {
+    return [oldArray sortedArrayUsingComparator:
                          ^NSComparisonResult(Picture *p1, Picture *p2) {
                              return [p2.time compare:p1.time];
                          }];
-    [self.tableView reloadData];
 }
-
-
 
 #pragma mark - Navigation
 - (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {

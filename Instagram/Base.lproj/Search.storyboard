@@ -20,6 +20,9 @@
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fG9-Nk-QQa">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="4ut-rV-LIt"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="mPE-y2-Ubs" id="Ye1-2W-heh"/>
@@ -62,26 +65,52 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="TZe-VV-7eo" secondAttribute="trailing" constant="-20" id="F1V-HH-9XB"/>
-                            <constraint firstItem="0vk-PA-tOT" firstAttribute="top" secondItem="TZe-VV-7eo" secondAttribute="bottom" id="GaV-fE-oud"/>
-                            <constraint firstItem="TZe-VV-7eo" firstAttribute="leading" secondItem="QEk-Ui-Ura" secondAttribute="leadingMargin" constant="-20" id="L8q-eg-CX5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TZe-VV-7eo" secondAttribute="trailing" constant="-20" id="5dZ-iC-RGL"/>
+                            <constraint firstItem="fG9-Nk-QQa" firstAttribute="leading" secondItem="QEk-Ui-Ura" secondAttribute="leadingMargin" constant="-20" id="DOK-Cv-yFj"/>
+                            <constraint firstItem="fG9-Nk-QQa" firstAttribute="top" secondItem="xxP-35-TVQ" secondAttribute="bottom" id="J2E-nO-4Fy"/>
                             <constraint firstItem="fG9-Nk-QQa" firstAttribute="leading" secondItem="QEk-Ui-Ura" secondAttribute="leadingMargin" constant="-20" id="QPk-Cw-WwP"/>
                             <constraint firstItem="TZe-VV-7eo" firstAttribute="top" secondItem="fG9-Nk-QQa" secondAttribute="bottom" id="Sub-8Z-Xng"/>
+                            <constraint firstItem="fG9-Nk-QQa" firstAttribute="top" secondItem="xxP-35-TVQ" secondAttribute="bottom" id="XRB-eg-cKb"/>
                             <constraint firstItem="fG9-Nk-QQa" firstAttribute="top" secondItem="xxP-35-TVQ" secondAttribute="bottom" id="fn8-RE-DJI"/>
+                            <constraint firstItem="TZe-VV-7eo" firstAttribute="leading" secondItem="QEk-Ui-Ura" secondAttribute="leadingMargin" constant="-20" id="fpq-XT-AQI"/>
+                            <constraint firstItem="0vk-PA-tOT" firstAttribute="top" secondItem="TZe-VV-7eo" secondAttribute="bottom" id="kmP-H4-8lc"/>
                             <constraint firstItem="0vk-PA-tOT" firstAttribute="top" secondItem="fG9-Nk-QQa" secondAttribute="bottom" constant="443" id="qFo-4M-mVR"/>
+                            <constraint firstItem="TZe-VV-7eo" firstAttribute="top" secondItem="fG9-Nk-QQa" secondAttribute="bottom" id="qiu-mW-8IW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fG9-Nk-QQa" secondAttribute="trailing" constant="-20" id="rxG-p0-YM8"/>
+                            <constraint firstItem="TZe-VV-7eo" firstAttribute="top" secondItem="fG9-Nk-QQa" secondAttribute="bottom" id="sTC-j5-p0r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fG9-Nk-QQa" secondAttribute="trailing" constant="-20" id="uq8-Tf-zcP"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="J2E-nO-4Fy"/>
+                                <exclude reference="QPk-Cw-WwP"/>
+                                <exclude reference="fn8-RE-DJI"/>
+                                <exclude reference="uq8-Tf-zcP"/>
+                                <exclude reference="Sub-8Z-Xng"/>
+                                <exclude reference="qiu-mW-8IW"/>
+                                <exclude reference="qFo-4M-mVR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="J2x-Qa-vUW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="fG9-Nk-QQa" id="s8M-Nn-HIT"/>
                         <outlet property="tableView" destination="TZe-VV-7eo" id="gGb-k6-rKE"/>
+                        <segue destination="MpH-rL-2lj" kind="show" identifier="toProfile" id="cae-07-9c0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8a-yj-5rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="636" y="1283"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="6mz-YK-pXz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="MpH-rL-2lj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJy-Er-Rdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207.5" y="1285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ezd-av-kzG">

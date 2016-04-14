@@ -20,7 +20,7 @@
     NSDate *time = c.time;
     NSDate *now = [NSDate date];
     NSTimeInterval n = [now timeIntervalSinceDate:time];
-    NSLog(@"%.0lf sec ago", n);
+//    NSLog(@"%.0lf sec ago", n);
     
     // 604,800 sec/wk
     // 86,400 sec/day

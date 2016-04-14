@@ -11,6 +11,7 @@
 #import "User.h"
 #import "Picture.h"
 #import "Comment.h"
+#import "ProfileViewController.h"
 
 
 @interface SearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
@@ -80,8 +81,25 @@
 
     return cell;
 }
+
+
+#pragma mark - Navigation
+// on search result selected, navigate to Profile feed view + scroll to that Picture
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSLog(@"[%@ %@] %i", self.class, NSStringFromSelector(_cmd), indexPath.row);
+    Comment *c = self.filteredArray[indexPath.row];
+    Picture *p = c.picture;
+
+    // pass data to Profile VC
+    int profileTabIndex = 4;
+    UITabBarController *tabVC = self.tabVC;
+    UINavigationController *nav = tabVC.viewControllers[profileTabIndex];
+    ProfileViewController *dstVC = nav.topViewController;
+    dstVC.scrollToPost = c.picture;
+
+    // switch to Profile tab
+    tabVC.selectedIndex = profileTabIndex;
 }
+
 
 @end

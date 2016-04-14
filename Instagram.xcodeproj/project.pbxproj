@@ -260,6 +260,7 @@
 		1A4A03B61CB9F53600D291EE /* Camera Section */ = {
 			isa = PBXGroup;
 			children = (
+				C23F58F81CBB2BAB001BD7AE /* Camera.storyboard */,
 				C2F7C8421CBEA1220089284E /* CustomImageFlowLayout.h */,
 				C2F7C8431CBEA1220089284E /* CustomImageFlowLayout.m */,
 				C23F58FA1CBB62A4001BD7AE /* LibraryCollectionViewCell.h */,
@@ -268,7 +269,6 @@
 				C23F58ED1CBAF55B001BD7AE /* CameraVC.m */,
 				C23F58F51CBB1544001BD7AE /* SharePhotoViewController.h */,
 				C23F58F61CBB1544001BD7AE /* SharePhotoViewController.m */,
-				C23F58F81CBB2BAB001BD7AE /* Camera.storyboard */,
 			);
 			name = "Camera Section";
 			sourceTree = "<group>";

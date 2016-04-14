@@ -13,6 +13,7 @@
 #import "User.h"
 #import "Comment.h"
 #import "Picture.h"
+#import "SearchViewController.h"
 
 @interface MainTabBarViewController () <UITabBarControllerDelegate>
 @property NSManagedObjectContext *moc;
@@ -24,13 +25,6 @@
 @implementation MainTabBarViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.arrayOfTabBarIcons = @[[UIImage imageNamed:@"Home-40"],
-                                [UIImage imageNamed:@"Search-40"],
-                                [UIImage imageNamed:@"Compact Camera-40"],
-                                [UIImage imageNamed:@"Wedding Photo-40"],
-                                [UIImage imageNamed:@"User-40"]];
-
     NSLog(@"Welcome to Ourstagram");
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
 
@@ -46,8 +40,20 @@
 
     // start in Profile tab
     self.selectedIndex = 4;
+
+    // tab bar VC
+    NSArray *childVCs = self.viewControllers;
+    UINavigationController *nav = self.viewControllers[1];
+    SearchViewController *searchVC = nav.topViewController;
+    searchVC.tabVC = self;
+    
     
     // tab bar icons
+    self.arrayOfTabBarIcons = @[[UIImage imageNamed:@"Home-40"],
+                                [UIImage imageNamed:@"Search-40"],
+                                [UIImage imageNamed:@"Compact Camera-40"],
+                                [UIImage imageNamed:@"Wedding Photo-40"],
+                                [UIImage imageNamed:@"User-40"]];
     for (int i = 0; i < 5; i++) {
         [self centerTabBarIcons:i];
         
@@ -55,7 +61,7 @@
     
     // sets the highlight image color to white
     [[UITabBar appearance] setTintColor:[UIColor blackColor]];
-    [[UITabBar appearance]setAlpha:0.25];
+    [[UITabBar appearance] setAlpha:0.25];
     
 }
 
