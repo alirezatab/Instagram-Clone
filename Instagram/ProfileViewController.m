@@ -157,16 +157,14 @@
 
 #pragma mark - TableView - Likes
 - (UIImage *)selectHeartIcon:(Picture *)p {
-    NSLog(@"[%@ %@]: %i", self.class, NSStringFromSelector(_cmd), [self.arrayOfPosts indexOfObject:p]);
     NSString *heartIconName = ([p isLikedBy:self.user]) ? (@"button-heart-on") : (@"button-heart-off");
     return [UIImage imageNamed:heartIconName];
 }
 - (void)likeButtonPressed:(id)sender {
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     FeedTableViewCell *cell = sender;
-
     int i = [self.tableView indexPathForCell:cell].row;
     Picture *p = self.arrayOfPosts[i];
-    NSLog(@"[%@ %@]: %i", self.class, NSStringFromSelector(_cmd), i);
 
     // data
     User *me = self.user;

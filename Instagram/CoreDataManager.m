@@ -39,9 +39,9 @@ void initMoc(void) {
     // save to Core
     NSError *error;
     if ([moc save:&error]) {
-        NSLog(@"core save ok");
+//        NSLog(@"core save ok");
     } else {
-        NSLog(@"core save error: %@", error);
+        NSLog(@">>> core save error: %@", error);
     }
 }
 
