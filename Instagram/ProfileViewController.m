@@ -46,8 +46,8 @@
     [imageLayer setMasksToBounds:YES];
     
     // tableView Nib
-    [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
-
+//    [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
+    
     
     
 }

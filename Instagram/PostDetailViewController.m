@@ -25,6 +25,7 @@
 @property ProfileViewController *profileVCReference;
 @property NSArray *arrayOfPosts;
 
+
 @end
 
 @implementation PostDetailViewController
@@ -65,25 +66,27 @@
 {
     FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postDetailCell" forIndexPath:indexPath];
     
-//    Picture *p = self.profileVCReference.arrayOfPosts[indexPath.row];
-//    User *u = p.owner;
-//    
-//    // post
-//    cell.topLeft_profileImageView.image = [UIImage imageNamed:@"profile2"]; // TODO
-//    [cell.topLeft_usernameButton setTitle:u.username forState:UIControlStateNormal];
-//    [cell.topLeft_locationButton setTitle:p.location forState:UIControlStateNormal];
-//    cell.middle_mainImageView.image = [UIImage imageWithData:p.image];
-//    [cell.bottomLeft_numLikesButton setTitle:[NSString stringWithFormat:@"♥︎ %lu likes", p.likedBy.count] forState:UIControlStateNormal];
-//    
-//    // comments
-//    NSArray *comments = [p.comments allObjects];
-//    Comment *c = comments[0];
-//    [cell.bottomLeft_commentUserButton setTitle:c.user.username forState:UIControlStateNormal];
-//    cell.bottomLeft_commentTextLabel.text = c.text;
-//    cell.bottomLeft_commentDateLabel.text = @"today";
+    Picture *p = _profileVCReference.arrayOfPosts[indexPath.row];
+    User *u = p.owner;
+    
+    // post
+    cell.topLeft_profileImageView.image = [UIImage imageNamed:@"profile2"]; // TODO
+    [cell.topLeft_usernameButton setTitle:u.username forState:UIControlStateNormal];
+    [cell.topLeft_locationButton setTitle:p.location forState:UIControlStateNormal];
+    cell.middle_mainImageView.image = [UIImage imageWithData:p.image];
+    [cell.bottomLeft_numLikesButton setTitle:[NSString stringWithFormat:@"♥︎ %lu likes", p.likedBy.count] forState:UIControlStateNormal];
+    
+    // comments
+    NSArray *comments = [p.comments allObjects];
+    Comment *c = comments[0];
+    [cell.bottomLeft_commentUserButton setTitle:c.user.username forState:UIControlStateNormal];
+    cell.bottomLeft_commentTextLabel.text = c.text;
+    cell.bottomLeft_commentDateLabel.text = @"today";
     
     // TODO: multiple comment lines
     // TODO: hook up buttons (username, location, heart, comment, numLikes, commentUser)
+    
+    
     
     return cell;
 }
