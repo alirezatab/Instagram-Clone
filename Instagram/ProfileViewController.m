@@ -115,7 +115,11 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     
-    
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"BeepBoop" ofType:@"mp3"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    NSError *error;
+    self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
+    [self.audioPlayer play];
     
 }
 
