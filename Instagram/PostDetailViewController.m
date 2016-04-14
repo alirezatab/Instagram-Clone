@@ -40,22 +40,6 @@
     
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    
-    
-    // current user
-    _profileVCReference.user = [self getMyUser];
-    _profileVCReference.profileImageView.image = [UIImage imageNamed:@"profile2"];
-    _profileVCReference.profileNameLabel.text = _profileVCReference.user.fullname;
-    
-    // current feed
-    _profileVCReference.arrayOfPosts = [_profileVCReference.user.pictures allObjects];
-    _profileVCReference.arrayOfPosts = [_profileVCReference.arrayOfPosts sortedArrayUsingComparator:
-                         ^NSComparisonResult(Picture *p1, Picture *p2) {
-                             return [p2.time compare:p1.time];
-                         }];
-    [self.detailTableView reloadData];
-}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -65,26 +49,6 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postDetailCell" forIndexPath:indexPath];
-    
-    Picture *p = _profileVCReference.arrayOfPosts[indexPath.row];
-    User *u = p.owner;
-    
-    // post
-    cell.topLeft_profileImageView.image = [UIImage imageNamed:@"profile2"]; // TODO
-    [cell.topLeft_usernameButton setTitle:u.username forState:UIControlStateNormal];
-    [cell.topLeft_locationButton setTitle:p.location forState:UIControlStateNormal];
-    cell.middle_mainImageView.image = [UIImage imageWithData:p.image];
-    [cell.bottomLeft_numLikesButton setTitle:[NSString stringWithFormat:@"♥︎ %lu likes", p.likedBy.count] forState:UIControlStateNormal];
-    
-    // comments
-    NSArray *comments = [p.comments allObjects];
-    Comment *c = comments[0];
-    [cell.bottomLeft_commentUserButton setTitle:c.user.username forState:UIControlStateNormal];
-    cell.bottomLeft_commentTextLabel.text = c.text;
-    cell.bottomLeft_commentDateLabel.text = @"today";
-    
-    // TODO: multiple comment lines
-    // TODO: hook up buttons (username, location, heart, comment, numLikes, commentUser)
     
     
     

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Picture.h"
 
 @interface PostDetailViewController : UIViewController
+
+@property Picture *detailPicture;
 
 @end

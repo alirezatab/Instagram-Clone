@@ -95,7 +95,7 @@ void initMoc(void) {
     
     NSArray *users = @[u];
     User *u2 = users[0];
-    NSLog(@"user \"@%@\" has %i pictures", u2.username, u2.pictures.count);
+    NSLog(@"user \"@%@\" has %lu pictures", u2.username, u2.pictures.count);
     return users;
 }
 

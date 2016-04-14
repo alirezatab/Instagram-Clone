@@ -35,7 +35,7 @@
     // Core Data
     self.users = [CoreDataManager fetchUsers];
     for (User *u in self.users) {
-        NSLog(@"%@: %i pics", u.username, u.pictures.count);
+        NSLog(@"%@: %lu pics", u.username, u.pictures.count);
     }
 
     // start in Profile tab

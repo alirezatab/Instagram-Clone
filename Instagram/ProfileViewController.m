@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *profileSegmentedControl;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *profileNameLabel;
 
 @property AVAudioPlayer *audioPlayer;
 
@@ -207,6 +209,12 @@
     return [CoreDataManager getUserZero];
 }
 
+#pragma mark - PrepareForSegue
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
 
 
 

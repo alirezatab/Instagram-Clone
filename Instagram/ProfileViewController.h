@@ -13,10 +13,6 @@
 @property User *user;
 @property NSArray *arrayOfPosts;
 
-@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (weak, nonatomic) IBOutlet UILabel *profileNameLabel;
-
-
 @property Picture *scrollToPost;
 
 @end
