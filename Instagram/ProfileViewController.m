@@ -133,42 +133,25 @@
     Comment *c = comments[0];
     [cell.bottomLeft_commentUserButton setTitle:c.user.username forState:UIControlStateNormal];
     cell.bottomLeft_commentTextLabel.text = c.text;
-    cell.bottomLeft_commentDateLabel.text = [self commentTime:c];
+    cell.bottomLeft_commentDateLabel.text = c.agoString;
 
+    // delegate
+    cell.likeDelegate = self;
+    
     // TODO: multiple comment lines
     // TODO: hook up buttons (username, location, heart, comment, numLikes, commentUser)
 
     return cell;
 }
 
--(NSString *)secsAgoString:(int)nSecs div:(int)div unit:(NSString *)unit plural:(BOOL)plural {
-    int x = (int)(nSecs/div);
-    NSString *unitStr = unit;
-    if (plural && x != 1) { unitStr = [NSString stringWithFormat:@"%@s", unitStr]; }
-    return [NSString stringWithFormat:@"%i %@ ago", x, unitStr];
+
+#pragma mark - TableView - LikeButton
+-(void)likeButtonPressed:(id)sender {
+    FeedTableViewCell *cell = sender;
+    int i = [self.tableView indexPathForCell:cell].row;
+    NSLog(@"[%@ %@]: %i", self.class, NSStringFromSelector(_cmd), i);
 }
--(NSString *)commentTime:(Comment *)c {
-    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
-    NSDate *time = c.time;
-    NSDate *now = [NSDate date];
-    NSTimeInterval n = [now timeIntervalSinceDate:time];
-    NSLog(@"%.0lf sec ago", n);
-    
-    // 604,800 sec/wk
-    // 86,400 sec/day
-    // 3600 sec/hr
-    // 60 sec/min
-    if (n >= 604800) {
-        return [self secsAgoString:n div:604800 unit:@"wk" plural:YES];
-    } else if (n >= 86400) {
-        return [self secsAgoString:n div:86400 unit:@"day" plural:YES];
-    } else if (n >= 3600) {
-        return [self secsAgoString:n div:3600 unit:@"hr" plural:YES];
-    } else if (n >= 60) {
-        return [self secsAgoString:n div:60 unit:@"min" plural:NO];
-    }
-    return [self secsAgoString:n div:1 unit:@"sec" plural:NO];
-}
+
 
 #pragma mark - TableView - Sections
 // tableView sections
@@ -180,12 +163,8 @@
 //        return @"Section 1";
 //    } else if (section == 1) {
 //        return @"Section 2";
-//    } else if (section == 2) {
-//        return @"Section 3";
-//    } else if (section == 3) {
-//        return @"Section 4";
 //    } else {
-//        return @"Section 5";
+//        return @"Section 3";
 //    }
 //}
 
