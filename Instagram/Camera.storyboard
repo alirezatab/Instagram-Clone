@@ -136,7 +136,7 @@
             </objects>
             <point key="canvasLocation" x="1510" y="1269"/>
         </scene>
-        <!--Title-->
+        <!--To Share-->
         <scene sceneID="rCl-mk-WZR">
             <objects>
                 <viewController id="ccW-BG-PMm" customClass="SharePhotoViewController" sceneMemberID="viewController">
@@ -205,6 +205,7 @@
                                 <state key="normal" title="SHARE"/>
                                 <connections>
                                     <action selector="onShareButtonPressed:" destination="ccW-BG-PMm" eventType="touchUpInside" id="D2x-sJ-PGv"/>
+                                    <segue destination="ORv-uL-1Ac" kind="unwind" unwindAction="unwindPlanetDestination:" id="yW9-K6-P9m"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -231,7 +232,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="e5k-GN-UC9">
+                    <navigationItem key="navigationItem" title="To Share" id="e5k-GN-UC9">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="pbM-Em-ZCh">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="igX-zE-KwN">
                                 <rect key="frame" x="550" y="7" width="30" height="30"/>
@@ -253,6 +254,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbo-TW-Gip" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ORv-uL-1Ac" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2203" y="1269"/>
         </scene>

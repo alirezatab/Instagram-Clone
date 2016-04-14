@@ -12,10 +12,8 @@
 #import "Picture.h"
 #import "CoreDataManager.h"
 
-
 @interface SharePhotoViewController ()
 @end
-
 
 @implementation SharePhotoViewController
 - (void)viewDidLoad {
@@ -31,12 +29,10 @@
     
     self.tabBarController.tabBar.hidden = YES;
 }
-
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     self.tabBarController.tabBar.hidden = NO;
 }
-
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     if ([self.userCommentTextView.text containsString:@"Write a caption..."]) {
     self.userCommentTextView.text = @"";
@@ -46,10 +42,8 @@
     } else {
         [self.userCommentTextView.text stringByAppendingString:self.userCommentTextView.text];
     }
-    
     return YES;
 }
-
 -(void)textViewDidChange:(UITextView *)textView{
     if (self.userCommentTextView.text.length == 0) {
         self.userCommentTextView.textColor = [UIColor lightGrayColor];
@@ -65,26 +59,30 @@
         [self.view endEditing:YES];
     }
 }
-
 - (IBAction)onShareButtonPressed:(UIButton *)sender {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
 
     // user: getMyUser()
     // image: self.shareImage
     // comment: self.userCommentTextView.text
-//    if ([self.userCommentTextView.text containsString:@"Write a caption..."]) {
-//        self.userCommentTextView.text = @"";
-//    }
+    
+    if ([self.userCommentTextView.text containsString:@"Write a caption..."]) {
+        self.userCommentTextView.text = @"";
+    }
+    
     [CoreDataManager addPicture:self.shareImage withComment:self.userCommentTextView.text fromUser:[self getMyUser]];
     [CoreDataManager save];
-    
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    // insert back into onShareButtonPressed if need the pop feature for to cameraVC
     // locally store the navigation controller since
     // self.navigationController will be nil once we are popped
     UINavigationController *navController = self.navigationController;
-
-    // Pop this controller and replace with another
+    
+    //Pop this controller and replace with another
     [navController popViewControllerAnimated:NO];
-    //[navController pushViewController:someViewController animated:NO];
+    // [navController pushViewController:someViewController animated:NO];
 }
 
 // getMyUser() - returns User object for current user
@@ -92,7 +90,6 @@
 -(User *)getMyUser {
     return [CoreDataManager getUserZero];
 }
-
-
-
 @end
+
+

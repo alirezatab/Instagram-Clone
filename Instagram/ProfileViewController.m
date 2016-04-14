@@ -86,8 +86,6 @@
     }
 }
 
-
-
 #pragma mark - CollectionView
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.arrayOfPosts.count;
@@ -189,7 +187,15 @@
 //    }
 //}
 
+-(IBAction) unwindPlanetDestination: (UIStoryboardSegue *)sender{
+    NSLog(@"Came back from planet");
+    //PlanetViewController *sourceVC = sender.sourceViewController;
+    //NSString *foo = sourceVC.nTitle;
+}
 
+//-(void)unwindForSegue:(UIStoryboardSegue *)unwindSegue towardsViewController:(UIViewController *)subsequentVC{
+//    
+//}
 
 #pragma mark - Custom Functions
 // getMyUser() - returns User object for current user
