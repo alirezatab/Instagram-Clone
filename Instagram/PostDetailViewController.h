@@ -11,6 +11,7 @@
 
 @interface PostDetailViewController : UIViewController
 
-@property Picture *detailPicture;
+@property NSIndexPath *passedIndexPath;
+@property Picture *detailPictureObject;
 
 @end

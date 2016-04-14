@@ -134,11 +134,13 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     
-    NSString *path = [[NSBundle mainBundle]pathForResource:@"BeepBoop" ofType:@"mp3"];
-    NSURL *url = [NSURL fileURLWithPath:path];
-    NSError *error;
-    self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
-    [self.audioPlayer play];
+//    NSString *path = [[NSBundle mainBundle]pathForResource:@"BeepBoop" ofType:@"mp3"];
+//    NSURL *url = [NSURL fileURLWithPath:path];
+//    NSError *error;
+//    self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
+//    [self.audioPlayer play];
+    
+    
     
 }
 
@@ -213,7 +215,14 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    if ([segue.identifier isEqualToString:@"collectionViewSegue"]) {
+        PostDetailViewController *destVC = segue.destinationViewController;
+        NSIndexPath *selectedIndexPath = [self.collectionView indexPathForCell:sender];
+        Picture *picture = self.arrayOfPosts[selectedIndexPath.row];
+        NSLog(@"WHAT IS PICTURE: %@", picture);
+        destVC.detailPictureObject = picture;
+    }
+
 }
 
 

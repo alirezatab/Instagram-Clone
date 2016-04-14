@@ -22,8 +22,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *detailTableView;
 
-@property ProfileViewController *profileVCReference;
-@property NSArray *arrayOfPosts;
 
 
 @end
@@ -49,8 +47,21 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postDetailCell" forIndexPath:indexPath];
+    User *user = self.detailPictureObject.owner;
     
+    cell.topLeft_profileImageView.image = [UIImage imageNamed:@"profile2"];
+    [cell.topLeft_usernameButton setTitle:user.username forState:UIControlStateNormal];
+    [cell.topLeft_locationButton setTitle:_detailPictureObject.location forState:UIControlStateNormal];
+    cell.middle_mainImageView.image = [UIImage imageWithData:self.detailPictureObject.image];
+    [cell.bottomLeft_numLikesButton setTitle:[NSString stringWithFormat:@"♥︎ %lu likes", self.detailPictureObject.likedBy.count] forState:UIControlStateNormal];
     
+    NSArray *comments = [self.detailPictureObject.comments allObjects];
+    Comment *c = comments[0];
+    [cell.bottomLeft_commentUserButton setTitle:c.user.username forState:UIControlStateNormal];
+    cell.bottomLeft_commentTextLabel.text = c.text;
+    cell.bottomLeft_commentDateLabel.text = c.agoString;
+    
+//    cell.likeDelegate = self;
     
     return cell;
 }
