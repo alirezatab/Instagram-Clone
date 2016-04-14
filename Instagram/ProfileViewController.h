@@ -12,12 +12,11 @@
 @interface ProfileViewController : UIViewController
 @property User *user;
 @property NSArray *arrayOfPosts;
-<<<<<<< HEAD
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *profileNameLabel;
 
-=======
+
 @property Picture *scrollToPost;
->>>>>>> dev2
+
 @end

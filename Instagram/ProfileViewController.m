@@ -42,20 +42,19 @@
     [imageLayer setCornerRadius:30];
     [imageLayer setMasksToBounds:YES];
     
-<<<<<<< HEAD
+
     // tableView Nib
 //    [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
     
     
     
-=======
     // collectionView
     self.collectionView.collectionViewLayout = [[CustomImageFlowLayout alloc] init];
     self.collectionView.backgroundColor = [UIColor blackColor];
     
     // tableView
     [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
->>>>>>> dev2
+
 }
 -(void)viewWillAppear:(BOOL)animated {
 
