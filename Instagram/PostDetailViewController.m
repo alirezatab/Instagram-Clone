@@ -95,14 +95,15 @@
     return [self secsAgoString:n div:1 unit:@"sec" plural:NO];
 }
 
-- (IBAction)onBackButtonPressed:(UIBarButtonItem *)sender
-{
-    [self dismissViewControllerAnimated:true completion:nil];
-}
+
+
+
+
 
 -(User *)getMyUser {
     return [CoreDataManager getUserZero];
 }
+
 
 
 @end

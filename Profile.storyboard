@@ -220,7 +220,7 @@
         <!--Post Detail View Controller-->
         <scene sceneID="A5k-dh-nlL">
             <objects>
-                <viewController id="HXm-dR-VX5" customClass="PostDetailViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="HXm-dR-VX5" customClass="PostDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wto-X3-0sY"/>
                         <viewControllerLayoutGuide type="bottom" id="Jgs-1v-KB3"/>
@@ -234,7 +234,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postDetailCell" rowHeight="446" id="tPd-Tb-QDy">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="446"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="446"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tPd-Tb-QDy" id="jTp-5i-Oyd">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="445"/>
@@ -256,13 +256,7 @@
                             <constraint firstItem="Jgs-1v-KB3" firstAttribute="top" secondItem="kgv-t7-RDN" secondAttribute="bottom" id="yEA-AO-2qF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dNk-Qv-591">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="QQX-X6-931">
-                            <connections>
-                                <action selector="onBackButtonPressed:" destination="HXm-dR-VX5" id="wkp-ds-Z2U"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="dNk-Qv-591"/>
                     <connections>
                         <outlet property="detailTableView" destination="kgv-t7-RDN" id="QNH-H2-WXG"/>
                     </connections>
