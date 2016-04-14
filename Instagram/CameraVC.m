@@ -38,16 +38,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tabBarController.delegate = self;
-    self.navigationController.navigationBarHidden = NO;
-    
-    [self noCameraInDevice];
-    [self turnCameraOn];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    
     self.collectionView.collectionViewLayout = [[CustomImageFlowLayout alloc] init];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     
@@ -59,8 +49,19 @@
     self.assetsFetchResults = [PHAsset fetchAssetsWithOptions:options];
     self.imageManager = [[PHCachingImageManager alloc] init];
     
-    [self.pictureSegmentedControl setSelectedSegmentIndex:0];
+    self.tabBarController.delegate = self;
+    self.navigationController.navigationBarHidden = NO;
     
+    [self.collectionView reloadData];
+    
+    [self noCameraInDevice];
+    [self turnCameraOn];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    [self.pictureSegmentedControl setSelectedSegmentIndex:0];
     self.allPhotos.hidden = YES;
 }
 
@@ -228,7 +229,7 @@
     //UIImageView *imageView = (UIImageView *)[cell viewWithTag:101];
     PHAsset *asset = self.assetsFetchResults[indexPath.item];
     
-    [self.imageManager requestImageForAsset:asset targetSize:CGSizeMake(80, 80) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage *result, NSDictionary *info)
+    [self.imageManager requestImageForAsset:asset targetSize:CGSizeMake(100, 100) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage *result, NSDictionary *info)
      {
          cell.libraryImageView.image = result;
      }];
