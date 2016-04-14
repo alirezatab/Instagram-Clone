@@ -12,6 +12,8 @@
 
 @implementation Picture
 
-// Insert code here to add functionality to your managed object subclass
+-(BOOL)isLikedBy:(User *)user {
+    return [self.likedBy containsObject:user];
+}
 
 @end

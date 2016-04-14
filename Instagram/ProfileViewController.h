@@ -12,4 +12,5 @@
 @interface ProfileViewController : UIViewController
 @property User *user;
 @property NSArray *arrayOfPosts;
+@property Picture *scrollToPost;
 @end

@@ -20,6 +20,10 @@
 @implementation CoreDataManager
 static NSManagedObjectContext *moc;
 
+
+
+#pragma mark - primitive
+
 void initMoc(void) {
     if (!moc) {
         AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
@@ -27,42 +31,52 @@ void initMoc(void) {
     }
 }
 
-// getMyUser() - returns User object for current user
-+ (User *)getUserZero {
++ (void)save {
     initMoc();
-
+    
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     
-    // fetch user0
-    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    // save to Core
     NSError *error;
-    NSArray *allUsers = [moc executeFetchRequest:req error:&error];
-    if (error) {
-        NSLog(@"core load error: %@", error);
-        return nil;
+    if ([moc save:&error]) {
+//        NSLog(@"core save ok");
+    } else {
+        NSLog(@">>> core save error: %@", error);
     }
-    NSLog(@"core load ok: %lu items", allUsers.count);
-    
-    return allUsers[0];
 }
 
-+ (NSArray *)fetchUsers {
++ (NSArray *)fetchAllOfType:(NSString *)entityType {
     initMoc();
-
+    
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     
-    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:entityType];
     NSError *error;
-    NSArray *users = [[moc executeFetchRequest:req error:&error] mutableCopy];
+    NSArray *fetchedObjects = [moc executeFetchRequest:req error:&error];
     if (!error) {
-        NSLog(@"core load ok: %lu items", users.count);
+        NSLog(@"core load ok: %lu %@s", fetchedObjects.count, entityType);
     } else {
         NSLog(@"core load error: %@", error);
     }
-    
-    if (users.count == 0) { users = [CoreDataManager dummyData]; }
+    return fetchedObjects;
+}
 
+
+#pragma mark - Comments
++ (NSArray *)fetchComments {
+    return [self fetchAllOfType:@"Comment"];
+}
+
+
+
+#pragma mark - Users
++ (NSArray *)fetchUsers {
+    NSArray *users = [self fetchAllOfType:@"User"];
+    if (users.count == 0) { users = [CoreDataManager dummyData]; }
     return users;
+}
++ (User *)getUserZero {
+    return [self fetchUsers][0];
 }
 + (NSArray *)dummyData {
     initMoc();
@@ -85,6 +99,8 @@ void initMoc(void) {
     return users;
 }
 
+
+#pragma mark - Pictures
 + (Picture *)addPicture:(UIImage *)pictureImage withComment:(NSString *)commentStr fromUser:(User *)user {
     initMoc();
     
@@ -108,17 +124,4 @@ void initMoc(void) {
     return p;
 }
 
-+ (void)save {
-    initMoc();
-    
-    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
-
-    // save to Core
-    NSError *error;
-    if ([moc save:&error]) {
-        NSLog(@"core save ok");
-    } else {
-        NSLog(@"core save error: %@", error);
-    }
-}
 @end
