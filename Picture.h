@@ -14,9 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Picture : NSManagedObject
-
-// Insert code here to declare functionality of your managed object subclass
-
+-(BOOL)isLikedBy:(User *)user;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -13,7 +13,4 @@
 @property (weak, nonatomic) IBOutlet UIButton *allPhotos;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 
-
-
-
 @end

@@ -54,7 +54,7 @@
     self.collectionView.collectionViewLayout = [[CustomImageFlowLayout alloc] init];
     self.collectionView.backgroundColor = [UIColor blackColor];
     
-    // tableView
+    // tableView - cell nib
     [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
 
 }
@@ -70,8 +70,7 @@
     self.profileNameLabel.text = self.user.fullname;
     
     // current feed
-    self.arrayOfPosts = [self sortPicturesByDate:[self.user.pictures allObjects]];
-    [self.tableView reloadData];
+    [self reloadAllData];
     
     // scroll to specific post
     if (self.scrollToPost) {
@@ -83,16 +82,11 @@
     }
 }
 
--(NSArray *)sortPicturesByDate:(NSArray *)oldArray {
-    return [oldArray sortedArrayUsingComparator:
-                         ^NSComparisonResult(Picture *p1, Picture *p2) {
-                             return [p2.time compare:p1.time];
-                         }];
-}
 
 #pragma mark - Navigation
 - (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {
     [self selectCollectionOrTableView];
+    [self reloadAllData];
 }
 
 //  toggle() - Hides the table view or collection view depending on which segmented control was selected
@@ -109,8 +103,6 @@
         self.collectionView.hidden = YES;
     }
 }
-
-
 
 #pragma mark - CollectionView
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -170,6 +162,9 @@
     cell.bottomLeft_commentTextLabel.text = c.text;
     cell.bottomLeft_commentDateLabel.text = c.agoString;
 
+    // heart button
+    [cell.bottomLeft_heartButton setImage:[self selectHeartIcon:p] forState:UIControlStateNormal];
+
     // delegate
     cell.likeDelegate = self;
     
@@ -180,11 +175,29 @@
 }
 
 
-#pragma mark - TableView - LikeButton
--(void)likeButtonPressed:(id)sender {
+#pragma mark - TableView - Likes
+- (UIImage *)selectHeartIcon:(Picture *)p {
+    NSString *heartIconName = ([p isLikedBy:self.user]) ? (@"button-heart-on") : (@"button-heart-off");
+    return [UIImage imageNamed:heartIconName];
+}
+- (void)likeButtonPressed:(id)sender {
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     FeedTableViewCell *cell = sender;
     int i = [self.tableView indexPathForCell:cell].row;
-    NSLog(@"[%@ %@]: %i", self.class, NSStringFromSelector(_cmd), i);
+    Picture *p = self.arrayOfPosts[i];
+
+    // data
+    User *me = self.user;
+    if ([p isLikedBy:me]) {
+        [p removeLikedByObject:me];
+    } else {
+        [p addLikedByObject:me];
+    }
+    [CoreDataManager save];
+    
+    // ui
+    [cell.bottomLeft_heartButton setImage:[self selectHeartIcon:p] forState:UIControlStateNormal];
+    [self reloadAllData];
 }
 
 
@@ -203,12 +216,10 @@
 //    }
 //}
 
-
-
-#pragma mark - Custom Functions
-// getMyUser() - returns User object for current user
--(User *)getMyUser {
-    return [CoreDataManager getUserZero];
+-(IBAction) unwindPlanetDestination: (UIStoryboardSegue *)sender{
+    NSLog(@"Came back from planet");
+    //PlanetViewController *sourceVC = sender.sourceViewController;
+    //NSString *foo = sourceVC.nTitle;
 }
 
 #pragma mark - PrepareForSegue
@@ -225,9 +236,25 @@
 
 }
 
+#pragma mark - Data
 
+-(void)reloadAllData {
+    self.arrayOfPosts = [self sortPicturesByDate:[self.user.pictures allObjects]];
+    [self.tableView reloadData];
+    [self.collectionView reloadData];
+}
 
+-(NSArray *)sortPicturesByDate:(NSArray *)oldArray {
+    return [oldArray sortedArrayUsingComparator:
+            ^NSComparisonResult(Picture *p1, Picture *p2) {
+                return [p2.time compare:p1.time];
+            }];
+}
 
+// getMyUser() - returns User object for current user
+-(User *)getMyUser {
+    return [CoreDataManager getUserZero];
+}
 
 
 @end

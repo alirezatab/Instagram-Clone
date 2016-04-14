@@ -22,6 +22,7 @@
 
 #pragma mark - LikeButton
 - (IBAction)onHeartButtonPressed:(UIButton *)sender {
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     [self.likeDelegate likeButtonPressed:self];
 }
 
