@@ -53,6 +53,11 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     NSLog(@"[%@ %@] >%@<", self.class, NSStringFromSelector(_cmd), searchText);
     self.filteredArray = [self filterArray:self.rawArray with:searchText];
+    self.filteredArray = [self.filteredArray sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        Comment *c1 = obj1;
+        Comment *c2 = obj2;
+        return [c1.text.lowercaseString compare:c2.text.lowercaseString];
+    }];
     [self.tableView reloadData];
 }
 -(NSArray *)filterArray:(NSArray *)oldArray with:(NSString *)filterString{
