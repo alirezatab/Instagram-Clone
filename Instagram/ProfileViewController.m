@@ -19,7 +19,7 @@
 #import "CustomImageFlowLayout.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, likeButtonPressed>
 
 #pragma mark - Outlets
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -44,25 +44,19 @@
     [imageLayer setCornerRadius:30];
     [imageLayer setMasksToBounds:YES];
     
-
-    // tableView Nib
-//    [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
-    
-    
-    
     // collectionView
     self.collectionView.collectionViewLayout = [[CustomImageFlowLayout alloc] init];
     self.collectionView.backgroundColor = [UIColor blackColor];
     
     // tableView - cell nib
     [self.tableView registerNib:[UINib nibWithNibName:@"FeedTableViewCell" bundle:nil] forCellReuseIdentifier:@"feedCell"];
-
 }
 -(void)viewWillAppear:(BOOL)animated {
-
+    [super viewWillAppear:animated];
+    
     // segment - default to tableview
     self.profileSegmentedControl.selectedSegmentIndex = 1;
-    [self selectCollectionOrTableView];
+    [self showCollectionOrTableView];
     
     // current user
     self.user = [self getMyUser];
@@ -77,38 +71,51 @@
         int indexOfPost = [self.arrayOfPosts indexOfObject:self.scrollToPost];
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexOfPost inSection:0];
         [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-
         self.scrollToPost = nil;
     }
 }
 
 
-#pragma mark - Navigation
+#pragma mark - Navigation - Segments
 - (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {
-    [self selectCollectionOrTableView];
+    [self showCollectionOrTableView];
     [self reloadAllData];
 }
-
-//  toggle() - Hides the table view or collection view depending on which segmented control was selected
--(void)selectCollectionOrTableView
-{
-    if (self.profileSegmentedControl.selectedSegmentIndex == 0)
-    {
+-(void)showCollectionOrTableView {
+    if (self.profileSegmentedControl.selectedSegmentIndex == 0) {
+        // 0: collectionview
         self.tableView.hidden = YES;
         self.collectionView.hidden = NO;
-    }
-    else if (self.profileSegmentedControl.selectedSegmentIndex == 1)
-    {
+    } else if (self.profileSegmentedControl.selectedSegmentIndex == 1) {
+        // 1: tableview
         self.tableView.hidden = NO;
         self.collectionView.hidden = YES;
     }
 }
 
+
+
+#pragma mark - Navigation - Segues
+-(IBAction) unwindPlanetDestination: (UIStoryboardSegue *)sender{
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
+    //PlanetViewController *sourceVC = sender.sourceViewController;
+}
+// used for transition to single-post view
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toDetailView"]) {
+        Picture *picture = self.arrayOfPosts[[self.collectionView indexPathForCell:sender].row];
+        //NSLog(@"%@", picture);
+        PostDetailViewController *dstVC = segue.destinationViewController;
+        dstVC.detailPictureObject = picture;
+        dstVC.me = self.user;
+    }
+}
+
+
 #pragma mark - CollectionView
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.arrayOfPosts.count;
 }
-
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ProfileCollectionViewCell *collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell" forIndexPath:indexPath];
 
@@ -118,22 +125,16 @@
 
     return collectionCell;
 }
-
 //-(CGSize)collectionView:(UICollectionView *)collectionView layout: (UICollectionView *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
 //    return CGSizeMake(self.collectionView.frame.size.width / 5, self.collectionView.frame.size.height / 5);
 //}
-
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
-    
 //    NSString *path = [[NSBundle mainBundle]pathForResource:@"BeepBoop" ofType:@"mp3"];
 //    NSURL *url = [NSURL fileURLWithPath:path];
 //    NSError *error;
 //    self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
 //    [self.audioPlayer play];
-    
-    
-    
 }
 
 
@@ -142,11 +143,11 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfPosts.count;
 }
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feedCell" forIndexPath:indexPath];
     Picture *p = self.arrayOfPosts[indexPath.row];
     User *u = p.owner;
+    User *me = self.user;
 
     // post
     cell.topLeft_profileImageView.image = [UIImage imageNamed:@"profile2"]; // TODO
@@ -163,23 +164,45 @@
     cell.bottomLeft_commentDateLabel.text = c.agoString;
 
     // heart button
-    [cell.bottomLeft_heartButton setImage:[self selectHeartIcon:p] forState:UIControlStateNormal];
+    [cell.bottomLeft_heartButton setImage:[me getHeartIcon:p] forState:UIControlStateNormal];
 
     // delegate
     cell.likeDelegate = self;
     
-    // TODO: multiple comment lines
-    // TODO: hook up buttons (username, location, heart, comment, numLikes, commentUser)
-
     return cell;
 }
 
 
-#pragma mark - TableView - Likes
-- (UIImage *)selectHeartIcon:(Picture *)p {
-    NSString *heartIconName = ([p isLikedBy:self.user]) ? (@"button-heart-on") : (@"button-heart-off");
-    return [UIImage imageNamed:heartIconName];
+#pragma mark - TableView - Delete
+// swipe to delete
+// canEditRowAtIndexPath: YES
+// commitEditingStyle: removeObject(CoreData) + deleteRows(TableView)
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    int i = indexPath.row;
+    Picture *deletedPicture = self.arrayOfPosts[i];
+
+    // delete comments
+    NSArray *deletedComments = [deletedPicture.comments allObjects];
+    for (Comment *c in deletedComments) {
+        [CoreDataManager deleteObject:c];
+    }
+
+    // delete picture
+    [CoreDataManager deleteObject:deletedPicture];
+
+    [CoreDataManager save];
+    [self reloadAllData];
+}
+
+
+#pragma mark - TableView - Likes
+//- (UIImage *)selectHeartIcon:(Picture *)p {
+//    NSString *heartIconName = ([p isLikedBy:self.user]) ? (@"button-heart-on") : (@"button-heart-off");
+//    return [UIImage imageNamed:heartIconName];
+//}
 - (void)likeButtonPressed:(id)sender {
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
     FeedTableViewCell *cell = sender;
@@ -196,7 +219,7 @@
     [CoreDataManager save];
     
     // ui
-    [cell.bottomLeft_heartButton setImage:[self selectHeartIcon:p] forState:UIControlStateNormal];
+    [cell.bottomLeft_heartButton setImage:[me getHeartIcon:p] forState:UIControlStateNormal];
     [self reloadAllData];
 }
 
@@ -216,28 +239,8 @@
 //    }
 //}
 
--(IBAction) unwindPlanetDestination: (UIStoryboardSegue *)sender{
-    NSLog(@"Came back from planet");
-    //PlanetViewController *sourceVC = sender.sourceViewController;
-    //NSString *foo = sourceVC.nTitle;
-}
-
-#pragma mark - PrepareForSegue
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"collectionViewSegue"]) {
-        PostDetailViewController *destVC = segue.destinationViewController;
-        NSIndexPath *selectedIndexPath = [self.collectionView indexPathForCell:sender];
-        Picture *picture = self.arrayOfPosts[selectedIndexPath.row];
-        NSLog(@"WHAT IS PICTURE: %@", picture);
-        destVC.detailPictureObject = picture;
-    }
-
-}
 
 #pragma mark - Data
-
 -(void)reloadAllData {
     self.arrayOfPosts = [self sortPicturesByDate:[self.user.pictures allObjects]];
     [self.tableView reloadData];
@@ -255,6 +258,12 @@
 -(User *)getMyUser {
     return [CoreDataManager getUserZero];
 }
+
+
+
+// TODO: multiple comment lines
+// TODO: hook up buttons (username, location, comment, numLikes, commentUser)
+
 
 
 @end

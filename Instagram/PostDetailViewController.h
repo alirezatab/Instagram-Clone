@@ -13,5 +13,6 @@
 
 @property NSIndexPath *passedIndexPath;
 @property Picture *detailPictureObject;
+@property User *me;
 
 @end

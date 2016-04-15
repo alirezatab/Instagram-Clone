@@ -36,11 +36,18 @@
     // search results
     self.rawArray = [NSArray new];
     self.filteredArray = [NSArray new];
-
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     self.rawArray = [CoreDataManager fetchComments];
+    self.rawArray = [self.rawArray sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        Comment *c1 = obj1;
+        Comment *c2 = obj2;
+        return [c1.text.lowercaseString compare:c2.text.lowercaseString];
+    }];
     self.filteredArray = [NSArray arrayWithArray:self.rawArray];
- }
-
+}
 
 #pragma mark - SearchBar
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {

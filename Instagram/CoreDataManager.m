@@ -33,10 +33,7 @@ void initMoc(void) {
 
 + (void)save {
     initMoc();
-    
     NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
-    
-    // save to Core
     NSError *error;
     if ([moc save:&error]) {
 //        NSLog(@"core save ok");
@@ -45,11 +42,15 @@ void initMoc(void) {
     }
 }
 
++ (void)deleteObject:(NSManagedObject *)x {
+    initMoc();
+    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
+    [moc deleteObject:x];
+}
+
 + (NSArray *)fetchAllOfType:(NSString *)entityType {
     initMoc();
-    
-    NSLog(@"[%@ %@]", self.class, NSStringFromSelector(_cmd));
-    
+    NSLog(@"[%@ %@]: %@", self.class, NSStringFromSelector(_cmd), entityType);
     NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:entityType];
     NSError *error;
     NSArray *fetchedObjects = [moc executeFetchRequest:req error:&error];
@@ -66,7 +67,6 @@ void initMoc(void) {
 + (NSArray *)fetchComments {
     return [self fetchAllOfType:@"Comment"];
 }
-
 
 
 #pragma mark - Users

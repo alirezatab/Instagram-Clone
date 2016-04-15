@@ -9,14 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Comment, Picture;
+@class Comment, Picture, UIImage;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface User : NSManagedObject
-
-// Insert code here to declare functionality of your managed object subclass
-
+- (UIImage *)getHeartIcon:(Picture *)p;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,9 +9,13 @@
 #import "User.h"
 #import "Comment.h"
 #import "Picture.h"
+#import <UIKit/UIKit.h>
 
 @implementation User
 
-// Insert code here to add functionality to your managed object subclass
+- (UIImage *)getHeartIcon:(Picture *)p {
+    NSString *heartIconName = ([p isLikedBy:self]) ? (@"button-heart-on") : (@"button-heart-off");
+    return [UIImage imageNamed:heartIconName];
+}
 
 @end

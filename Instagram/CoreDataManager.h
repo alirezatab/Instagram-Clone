@@ -15,6 +15,7 @@
 + (Picture *)addPicture:(UIImage *)pictureImage
             withComment:(NSString *)commentStr
                fromUser:(User *)user;
++ (void)deleteObject:(NSManagedObject *)x;
 + (void)save;
 + (NSArray *)fetchComments;
 + (NSArray *)fetchUsers;
