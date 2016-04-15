@@ -66,12 +66,15 @@
     // current feed
     [self reloadAllData];
     
-    // scroll to specific post
+    // scroll to particular post (if specified by parentVC)
     if (self.scrollToPost) {
         int indexOfPost = [self.arrayOfPosts indexOfObject:self.scrollToPost];
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:indexOfPost inSection:0];
         [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         self.scrollToPost = nil;
+    } else {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
 }
 
@@ -184,7 +187,7 @@
     int i = indexPath.row;
     Picture *deletedPicture = self.arrayOfPosts[i];
 
-    // delete comments
+    // delete all comments
     NSArray *deletedComments = [deletedPicture.comments allObjects];
     for (Comment *c in deletedComments) {
         [CoreDataManager deleteObject:c];

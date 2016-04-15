@@ -55,7 +55,7 @@
     [self.collectionView reloadData];
     
     [self noCameraInDevice];
-    [self turnCameraOn];
+    //[self turnCameraOn];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -68,6 +68,11 @@
 // show error if no camera
 -(void)noCameraInDevice{
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        // disable camera + video buttons
+        [self.pictureSegmentedControl setEnabled:NO forSegmentAtIndex:1];
+        [self.pictureSegmentedControl setEnabled:NO forSegmentAtIndex:2];
+        
+        // uialert
         UIAlertController *noCameraAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Device has no Camera" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *oKButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action){}];
         [noCameraAlert addAction:oKButton];
@@ -96,7 +101,7 @@
 // set up camera
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     if (self.tabBarController.tabBar.selectedItem.tag == 2) {
-        [self turnCameraOn];
+        //[self turnCameraOn];
     }
 }
 

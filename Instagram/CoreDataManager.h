@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 #import "Picture.h"
+#import "Hashtag.h"
 
 
 @interface CoreDataManager : NSObject
@@ -19,5 +20,6 @@
 + (void)save;
 + (NSArray *)fetchComments;
 + (NSArray *)fetchUsers;
++ (Hashtag *)fetchHashtag:(NSString *)tag;
 + (User *)getUserZero;
 @end
